@@ -1,6 +1,7 @@
-[gd_scene load_steps=65 format=3 uid="uid://cjnjj3q7brpak"]
+[gd_scene load_steps=66 format=3 uid="uid://cjnjj3q7brpak"]
 
 [ext_resource type="Texture2D" uid="uid://s7unkirpxo24" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/1.png" id="1_nxkm2"]
+[ext_resource type="Script" path="res://scenes/player.cs" id="1_q3emm"]
 [ext_resource type="Texture2D" uid="uid://bgnvwrpvn8lae" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/2.png" id="2_fdgsi"]
 [ext_resource type="Texture2D" uid="uid://bvd63muersvn5" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/3.png" id="3_xjo6r"]
 [ext_resource type="Texture2D" uid="uid://b28isx1xdo50a" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/4.png" id="4_dk1a5"]
@@ -272,12 +273,13 @@ radius = 14.0
 height = 52.0
 
 [node name="Player" type="Area2D"]
+script = ExtResource("1_q3emm")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8swsl")
 animation = &"idle"
-frame_progress = 0.508246
+frame_progress = 0.0508143
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 11)

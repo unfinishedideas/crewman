@@ -11,3 +11,8 @@ Created by Peter Wells and Stuart Rimel for CS-510 Computer Game Design at Portl
 ## Technology
 
 Crewman is created in the open source [Godot Engine](https://godotengine.org/). Specifically The .Net 4.1.1 version
+
+## Useful Resources
+
+[VS Code and Godot](https://docs.godotengine.org/en/stable/contributing/development/configuring_an_ide/visual_studio_code.html)
+[VSCode C# and Godot](https://gist.github.com/paulloz/30ae499c1fc580a2f3ab9ecebe80d9ba)
