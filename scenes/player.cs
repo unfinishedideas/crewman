@@ -53,10 +53,14 @@ public partial class player : CharacterBody2D
 			}
 
 			// Animate
+			// https://ask.godotengine.org/92282/why-my-character-scale-keep-changing?show=146969#a146969
+			// Do not modify scale.x. Instead, set scale.y = -1 and rotation_degrees = 180. To revert, set scale.y = 1 and rotation_degrees = 0.
 			if (facingRight) {
 				Scale = new Vector2(1, 1);
+				RotationDegrees = 0;
 			} else {
-				Scale = new Vector2(-1, 1);
+				Scale = new Vector2(1, -1);
+				RotationDegrees = 180;
 			}
 
 			if (velocity.Length() > 0)
