@@ -272,7 +272,7 @@ animations = [{
 radius = 14.0
 height = 52.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_q3emm")
 metadata/_edit_group_ = true
 
@@ -281,8 +281,8 @@ sprite_frames = SubResource("SpriteFrames_8swsl")
 animation = &"idle"
 frame_progress = 0.0508143
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 11)
 shape = SubResource("CapsuleShape2D_wjcmh")
-
-[node name="Camera2D" type="Camera2D" parent="."]

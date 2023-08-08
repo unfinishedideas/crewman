@@ -2,10 +2,12 @@ using Godot;
 using System;
 
 // A lot of this code comes from the Godot docs here: https://docs.godotengine.org/en/stable/getting_started/first_2d_game/03.coding_the_player.html
-public partial class player : Area2D
+// and here: https://docs.godotengine.org/en/stable/tutorials/physics/using_character_body_2d.html
+
+public partial class player : CharacterBody2D
 {
 	[Export]
-    public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
+	public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
 
 	private bool facingRight;
 	AnimatedSprite2D animatedSprite2D;
@@ -30,6 +32,7 @@ public partial class player : Area2D
 		else
 		{
 			var velocity = Vector2.Zero; // The player's movement vector.
+			// Vector2 velocity = Velocity;
 			if (Input.IsActionPressed("move_right"))
 			{
 				velocity.X += 1;
@@ -50,11 +53,10 @@ public partial class player : Area2D
 			}
 
 			// Animate
-			var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 			if (facingRight) {
-				Scale = new Vector2 (1, 1);
+				Scale = new Vector2(1, 1);
 			} else {
-				Scale = new Vector2 (-1, 1);
+				Scale = new Vector2(-1, 1);
 			}
 
 			if (velocity.Length() > 0)
@@ -68,8 +70,14 @@ public partial class player : Area2D
 			}
 
 			// Move the player
-			Position += velocity * (float)delta;
-			Position = new Vector2(Position.X, Position.Y);
+			// Position += velocity * (float)delta;
+			// Position = new Vector2(Position.X, Position.Y);
+
+			var collision = MoveAndCollide(velocity * (float)delta);
+			if (collision != null)
+			{
+				GD.Print("I collided with ", ((Node)collision.GetCollider()).Name);
+			}
 		}
 	}
 }

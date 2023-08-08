@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cttmwq6tcwhal"]
+[gd_scene load_steps=17 format=3 uid="uid://cttmwq6tcwhal"]
 
 [ext_resource type="PackedScene" uid="uid://cjnjj3q7brpak" path="res://scenes/player.tscn" id="1_wxcpe"]
 [ext_resource type="Texture2D" uid="uid://dd0kajvtfv482" path="res://assets/ship/Ship_mast.png" id="2_c5j1c"]
@@ -13,44 +13,34 @@
 [ext_resource type="Texture2D" uid="uid://d7pqpwwou3tl" path="res://assets/ship/Ship_body_upper1.0.png" id="11_tn2ww"]
 [ext_resource type="Texture2D" uid="uid://b8m7rnoqb6aim" path="res://assets/ship/Ship_body_lower1.0.png" id="12_uakgm"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkpmn"]
+size = Vector2(41.5, 20)
 
-[node name="Player" parent="." instance=ExtResource("1_wxcpe")]
-z_index = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltgj3"]
+size = Vector2(51, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnv60"]
+size = Vector2(41.75, 352.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if1r3"]
+size = Vector2(50.5, 70)
+
+[node name="Node2D" type="Node2D"]
 
 [node name="Ship" type="Area2D" parent="."]
 position = Vector2(107, -147)
 scale = Vector2(2, 1)
-metadata/_edit_group_ = true
 
 [node name="ShipDeckLower1_0" type="Sprite2D" parent="Ship"]
 position = Vector2(-19, 179)
 scale = Vector2(5, 5)
 texture = ExtResource("9_s7lsl")
 
-[node name="ShipBodyUpper1_0" type="Sprite2D" parent="Ship"]
-z_index = 1
-position = Vector2(118, -16)
-scale = Vector2(5, 5)
-texture = ExtResource("11_tn2ww")
-
 [node name="ShipDeckUpper1_0" type="Sprite2D" parent="Ship"]
 z_index = 1
 position = Vector2(49.9999, 150)
 scale = Vector2(5, 5)
 texture = ExtResource("10_xbkte")
-
-[node name="ShipBodyLower1_0" type="Sprite2D" parent="Ship"]
-z_index = 3
-position = Vector2(118, 329)
-scale = Vector2(5, 5)
-texture = ExtResource("12_uakgm")
-
-[node name="ShipMast" type="Sprite2D" parent="Ship"]
-z_index = 3
-position = Vector2(-7, -64)
-scale = Vector2(5, 5)
-texture = ExtResource("2_c5j1c")
 
 [node name="ShipSail" type="Sprite2D" parent="Ship"]
 z_index = 3
@@ -80,8 +70,62 @@ position = Vector2(-31.9999, -71)
 scale = Vector2(5, 5)
 texture = ExtResource("7_34hcj")
 
-[node name="ShipWheel1_0" type="Sprite2D" parent="Ship"]
+[node name="Wheel" type="StaticBody2D" parent="Ship"]
+
+[node name="ShipWheel1_0" type="Sprite2D" parent="Ship/Wheel"]
 z_index = 2
 position = Vector2(-357, 106)
 scale = Vector2(5, 5)
 texture = ExtResource("8_o2iuw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Wheel"]
+z_index = 2
+position = Vector2(-351.75, 130)
+shape = SubResource("RectangleShape2D_nkpmn")
+
+[node name="Mast" type="StaticBody2D" parent="Ship"]
+
+[node name="ShipMast" type="Sprite2D" parent="Ship/Mast"]
+z_index = 3
+position = Vector2(-7, -64)
+scale = Vector2(5, 5)
+texture = ExtResource("2_c5j1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Mast"]
+z_index = 3
+position = Vector2(-7, 185)
+shape = SubResource("RectangleShape2D_ltgj3")
+
+[node name="ShipBodyUpper" type="StaticBody2D" parent="Ship"]
+
+[node name="ShipBodyUpper1_0" type="Sprite2D" parent="Ship/ShipBodyUpper"]
+z_index = 1
+position = Vector2(118, -16)
+scale = Vector2(5, 5)
+texture = ExtResource("11_tn2ww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/ShipBodyUpper"]
+position = Vector2(-478.5, 123)
+shape = SubResource("RectangleShape2D_lnv60")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/ShipBodyUpper"]
+polygon = PackedVector2Array(573.5, 104, 419, -47, 297, -46, 179.5, 20, -204.5, 22, -303, -48, -462.5, -47, -494.5, -30, -503.5, -104, 581, -97)
+
+[node name="ShipBodyLower" type="StaticBody2D" parent="Ship"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/ShipBodyLower"]
+polygon = PackedVector2Array(-464, 286, -319.5, 287, -230, 347, 193.5, 353, 300, 286, 403.5, 290, 576.5, 122, 558, 46, 610, 36, 620, 142, 517, 297, 396.5, 389, 139.5, 453, -323, 438, -441.5, 386)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/ShipBodyLower"]
+position = Vector2(556.25, 118)
+shape = SubResource("RectangleShape2D_if1r3")
+
+[node name="ShipBodyLower1_0" type="Sprite2D" parent="Ship/ShipBodyLower"]
+z_index = 3
+position = Vector2(118, 329)
+scale = Vector2(5, 5)
+texture = ExtResource("12_uakgm")
+
+[node name="Player" parent="." instance=ExtResource("1_wxcpe")]
+z_index = 1
+position = Vector2(-125, 16)
