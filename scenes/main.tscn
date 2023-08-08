@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://cttmwq6tcwhal"]
+[gd_scene load_steps=26 format=3 uid="uid://cttmwq6tcwhal"]
 
-[ext_resource type="PackedScene" uid="uid://cjnjj3q7brpak" path="res://scenes/player.tscn" id="1_wxcpe"]
 [ext_resource type="Texture2D" uid="uid://dd0kajvtfv482" path="res://assets/ship/Ship_mast.png" id="2_c5j1c"]
 [ext_resource type="Texture2D" uid="uid://b1ecf6ua55xsm" path="res://assets/ship/Ship_sail.png" id="3_5xvus"]
 [ext_resource type="Texture2D" uid="uid://bn68tv3835osl" path="res://assets/ship/Ship_rope1.png" id="4_yewqo"]
@@ -11,7 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://bxcl0qw0mbybl" path="res://assets/ship/Ship_deck_lower1.0.png" id="9_s7lsl"]
 [ext_resource type="Texture2D" uid="uid://dn11yqf8suf5r" path="res://assets/ship/Ship_deck_upper1.0.png" id="10_xbkte"]
 [ext_resource type="Texture2D" uid="uid://d7pqpwwou3tl" path="res://assets/ship/Ship_body_upper1.0.png" id="11_tn2ww"]
+[ext_resource type="Script" path="res://scenes/CameraController.cs" id="12_8dl3y"]
 [ext_resource type="Texture2D" uid="uid://b8m7rnoqb6aim" path="res://assets/ship/Ship_body_lower1.0.png" id="12_uakgm"]
+[ext_resource type="PackedScene" uid="uid://cjnjj3q7brpak" path="res://scenes/Player.tscn" id="13_7oww8"]
+[ext_resource type="Shader" path="res://scenes/water.gdshader" id="14_n1axm"]
+[ext_resource type="Texture2D" uid="uid://cf8w6o355ykha" path="res://assets/icon.svg" id="15_h12bi"]
+[ext_resource type="Texture2D" uid="uid://lx56pw5gjlm8" path="res://assets/backgrounds/water_texture.jpg" id="16_5cmnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkpmn"]
 size = Vector2(41.5, 20)
@@ -25,14 +29,45 @@ size = Vector2(41.75, 352.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_if1r3"]
 size = Vector2(50.5, 70)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_853o8"]
+seed = 1120
+frequency = 0.0547
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cum16"]
+seamless = true
+noise = SubResource("FastNoiseLite_853o8")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wnpwv"]
+noise_type = 4
+seed = 235
+frequency = 0.0924
+offset = Vector3(21.75, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5jgtv"]
+seamless = true
+noise = SubResource("FastNoiseLite_wnpwv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3dnr"]
+shader = ExtResource("14_n1axm")
+shader_parameter/scroll1 = Vector2(0.02, 0.001)
+shader_parameter/scroll2 = Vector2(0.002, -0.002)
+shader_parameter/distortion_strength = 0.03
+shader_parameter/tone_color = Color(0.592157, 0.831373, 0.988235, 1)
+shader_parameter/top_color = Color(0.470588, 0.470588, 0.470588, 1)
+shader_parameter/light_start = 0.203
+shader_parameter/light_end = 0.9
+shader_parameter/noise1 = SubResource("NoiseTexture2D_cum16")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_5jgtv")
+
+[node name="Main" type="Node2D"]
 
 [node name="Ship" type="Area2D" parent="."]
 position = Vector2(107, -147)
 scale = Vector2(2, 1)
+metadata/_edit_group_ = true
 
 [node name="ShipDeckLower1_0" type="Sprite2D" parent="Ship"]
-position = Vector2(-19, 179)
+position = Vector2(-17.5, 182)
 scale = Vector2(5, 5)
 texture = ExtResource("9_s7lsl")
 
@@ -126,6 +161,25 @@ position = Vector2(118, 329)
 scale = Vector2(5, 5)
 texture = ExtResource("12_uakgm")
 
-[node name="Player" parent="." instance=ExtResource("1_wxcpe")]
-z_index = 1
-position = Vector2(-125, 16)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, 9)
+position_smoothing_enabled = true
+script = ExtResource("12_8dl3y")
+
+[node name="Player" parent="." instance=ExtResource("13_7oww8")]
+
+[node name="WaterShader" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_e3dnr")
+position = Vector2(52.0001, -599)
+scale = Vector2(150.504, 121.23)
+texture = ExtResource("15_h12bi")
+
+[node name="WaterTexture" type="TextureRect" parent="."]
+z_index = -2
+offset_left = -13951.0
+offset_top = -10307.0
+offset_right = 13618.0
+offset_bottom = 9602.0
+texture = ExtResource("16_5cmnt")
+stretch_mode = 1
