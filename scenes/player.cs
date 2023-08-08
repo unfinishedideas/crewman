@@ -6,17 +6,13 @@ public partial class player : Area2D
 {
 	[Export]
     public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
-    public Vector2 ScreenSize; // Size of the game window.
 
 	private bool facingRight;
-	private bool interacting;
 	AnimatedSprite2D animatedSprite2D;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		ScreenSize = GetViewportRect().Size;
-		interacting = false;
 		facingRight = true;
 		// TODO: Error handling in case it can't find the AnimatedSprite2D
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -73,10 +69,7 @@ public partial class player : Area2D
 
 			// Move the player
 			Position += velocity * (float)delta;
-			Position = new Vector2(
-				x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
-				y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
-			);
+			Position = new Vector2(Position.X, Position.Y);
 		}
 	}
 }

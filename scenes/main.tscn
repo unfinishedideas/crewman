@@ -1,7 +1,87 @@
-[gd_scene load_steps=2 format=3 uid="uid://cttmwq6tcwhal"]
+[gd_scene load_steps=13 format=3 uid="uid://cttmwq6tcwhal"]
 
 [ext_resource type="PackedScene" uid="uid://cjnjj3q7brpak" path="res://scenes/player.tscn" id="1_wxcpe"]
+[ext_resource type="Texture2D" uid="uid://dd0kajvtfv482" path="res://assets/ship/Ship_mast.png" id="2_c5j1c"]
+[ext_resource type="Texture2D" uid="uid://b1ecf6ua55xsm" path="res://assets/ship/Ship_sail.png" id="3_5xvus"]
+[ext_resource type="Texture2D" uid="uid://bn68tv3835osl" path="res://assets/ship/Ship_rope1.png" id="4_yewqo"]
+[ext_resource type="Texture2D" uid="uid://3o2va53kqskq" path="res://assets/ship/Ship_rope2.png" id="5_jy4vk"]
+[ext_resource type="Texture2D" uid="uid://s68j6866yt44" path="res://assets/ship/Ship_rope3.png" id="6_nxq6o"]
+[ext_resource type="Texture2D" uid="uid://5npfo3nce13q" path="res://assets/ship/Ship_rope4.png" id="7_34hcj"]
+[ext_resource type="Texture2D" uid="uid://fvecpqgjrulv" path="res://assets/ship/Ship_wheel1.0.png" id="8_o2iuw"]
+[ext_resource type="Texture2D" uid="uid://bxcl0qw0mbybl" path="res://assets/ship/Ship_deck_lower1.0.png" id="9_s7lsl"]
+[ext_resource type="Texture2D" uid="uid://dn11yqf8suf5r" path="res://assets/ship/Ship_deck_upper1.0.png" id="10_xbkte"]
+[ext_resource type="Texture2D" uid="uid://d7pqpwwou3tl" path="res://assets/ship/Ship_body_upper1.0.png" id="11_tn2ww"]
+[ext_resource type="Texture2D" uid="uid://b8m7rnoqb6aim" path="res://assets/ship/Ship_body_lower1.0.png" id="12_uakgm"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_wxcpe")]
+z_index = 2
+
+[node name="Ship" type="Area2D" parent="."]
+position = Vector2(107, -147)
+scale = Vector2(2, 1)
+metadata/_edit_group_ = true
+
+[node name="ShipDeckLower1_0" type="Sprite2D" parent="Ship"]
+position = Vector2(-19, 179)
+scale = Vector2(5, 5)
+texture = ExtResource("9_s7lsl")
+
+[node name="ShipBodyUpper1_0" type="Sprite2D" parent="Ship"]
+z_index = 1
+position = Vector2(118, -16)
+scale = Vector2(5, 5)
+texture = ExtResource("11_tn2ww")
+
+[node name="ShipDeckUpper1_0" type="Sprite2D" parent="Ship"]
+z_index = 1
+position = Vector2(49.9999, 150)
+scale = Vector2(5, 5)
+texture = ExtResource("10_xbkte")
+
+[node name="ShipBodyLower1_0" type="Sprite2D" parent="Ship"]
+z_index = 3
+position = Vector2(118, 329)
+scale = Vector2(5, 5)
+texture = ExtResource("12_uakgm")
+
+[node name="ShipMast" type="Sprite2D" parent="Ship"]
+z_index = 3
+position = Vector2(-7, -64)
+scale = Vector2(5, 5)
+texture = ExtResource("2_c5j1c")
+
+[node name="ShipSail" type="Sprite2D" parent="Ship"]
+z_index = 3
+position = Vector2(57.9999, -137)
+scale = Vector2(5, 5)
+texture = ExtResource("3_5xvus")
+
+[node name="ShipRope1" type="Sprite2D" parent="Ship"]
+position = Vector2(-159, -156)
+scale = Vector2(5, 5)
+texture = ExtResource("4_yewqo")
+
+[node name="ShipRope2" type="Sprite2D" parent="Ship"]
+z_index = 3
+position = Vector2(4.00003, -9.99994)
+scale = Vector2(5, 5)
+texture = ExtResource("5_jy4vk")
+
+[node name="ShipRope3" type="Sprite2D" parent="Ship"]
+z_index = 4
+position = Vector2(-39, 224)
+scale = Vector2(5, 5)
+texture = ExtResource("6_nxq6o")
+
+[node name="ShipRope4" type="Sprite2D" parent="Ship"]
+position = Vector2(-31.9999, -71)
+scale = Vector2(5, 5)
+texture = ExtResource("7_34hcj")
+
+[node name="ShipWheel1_0" type="Sprite2D" parent="Ship"]
+z_index = 2
+position = Vector2(-357, 106)
+scale = Vector2(5, 5)
+texture = ExtResource("8_o2iuw")

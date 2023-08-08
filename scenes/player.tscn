@@ -284,3 +284,5 @@ frame_progress = 0.0508143
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 11)
 shape = SubResource("CapsuleShape2D_wjcmh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
