@@ -4,7 +4,7 @@ using System;
 // A lot of this code comes from the Godot docs here: https://docs.godotengine.org/en/stable/getting_started/first_2d_game/03.coding_the_player.html
 // and here: https://docs.godotengine.org/en/stable/tutorials/physics/using_character_body_2d.html
 
-public partial class Player : CharacterBody2D
+public partial class player : CharacterBody2D
 {
 	[Export]
 	public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
