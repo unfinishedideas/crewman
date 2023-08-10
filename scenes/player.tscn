@@ -272,7 +272,7 @@ animations = [{
 radius = 14.0
 height = 52.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_kspb7")
 metadata/_edit_group_ = true
 
