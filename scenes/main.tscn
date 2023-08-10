@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dn11yqf8suf5r" path="res://assets/ship/Ship_deck_upper1.0.png" id="10_xbkte"]
 [ext_resource type="Texture2D" uid="uid://d7pqpwwou3tl" path="res://assets/ship/Ship_body_upper1.0.png" id="11_tn2ww"]
 [ext_resource type="Script" path="res://scenes/CameraController.cs" id="12_8dl3y"]
-[ext_resource type="PackedScene" uid="uid://dere7l3esysb8" path="res://scenes/canon.tscn" id="12_d26fe"]
+[ext_resource type="PackedScene" uid="uid://dere7l3esysb8" path="res://scenes/Cannon.tscn" id="12_d26fe"]
 [ext_resource type="Texture2D" uid="uid://b8m7rnoqb6aim" path="res://assets/ship/Ship_body_lower1.0.png" id="12_uakgm"]
 [ext_resource type="PackedScene" uid="uid://cjnjj3q7brpak" path="res://scenes/Player.tscn" id="13_7oww8"]
 [ext_resource type="Shader" path="res://scenes/water.gdshader" id="14_n1axm"]
@@ -170,6 +170,7 @@ script = ExtResource("12_8dl3y")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("13_7oww8")]
+z_index = 2
 metadata/_edit_lock_ = true
 
 [node name="WaterShader" type="Sprite2D" parent="."]
@@ -190,6 +191,6 @@ texture = ExtResource("16_5cmnt")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="Canon" parent="." instance=ExtResource("12_d26fe")]
+[node name="Cannon" parent="." instance=ExtResource("12_d26fe")]
 z_index = 1
-position = Vector2(-216, -115)
+position = Vector2(-176, -118)
