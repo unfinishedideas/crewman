@@ -12,11 +12,13 @@ public partial class Cannon : Area2D
 		ready
 	}
 	private CannonState state = CannonState.ready;
+	private bool in_interactable_range = false;
 	private bool being_interacted = false;
 	private float loading_status = 0.0f;
 	int num_loadbar_frames = 1;
 
 	[Export] public float loading_speed = 0.001f;
+	[Export] public float interaction_speed_bonus = 0.003f;
 	[Export] public bool flip_status = false;
 
 
@@ -39,7 +41,7 @@ public partial class Cannon : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (state == CannonState.loading && being_interacted == true)
+		if (state == CannonState.loading && in_interactable_range == true)
 		{
 			if (loading_status >= 1.0f)
 			{
@@ -49,6 +51,10 @@ public partial class Cannon : Area2D
 			else 
 			{
 				loading_status += loading_speed;
+				if (being_interacted)
+				{
+					loading_status += interaction_speed_bonus;
+				}
 				int frame = (int)Math.Floor(num_loadbar_frames * loading_status);
 				LoadBarAnimator.SetFrameAndProgress(frame, 0);
 			}
@@ -57,8 +63,9 @@ public partial class Cannon : Area2D
 
 	private void InteractHandler()
 	{
-		if (being_interacted)
+		if (in_interactable_range)
 		{
+			being_interacted = true;
 			switch(state)
 			{
 				case CannonState.empty:
@@ -116,7 +123,7 @@ public partial class Cannon : Area2D
 	{
 		if (body.IsInGroup("Player"))
 		{
-			being_interacted = true;
+			in_interactable_range = true;
 		}
 	}
 
@@ -124,7 +131,7 @@ public partial class Cannon : Area2D
 	{
 		if (body.IsInGroup("Player"))
 		{
-			being_interacted = false;
+			in_interactable_range = false;
 		}
 	}
 
@@ -136,5 +143,9 @@ public partial class Cannon : Area2D
 	private void _on_player_player_interacting()
 	{
 		InteractHandler();
+	}
+	private void _on_player_player_stopped_interacting()
+	{
+		being_interacted = false;
 	}
 }

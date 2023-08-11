@@ -242,6 +242,7 @@ sprite_frames = SubResource("SpriteFrames_fimwf")
 animation = &"loading"
 
 [node name="LoadBarAnimator" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(0, 19)
 scale = Vector2(2.25, 2.25)
