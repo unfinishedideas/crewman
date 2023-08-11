@@ -10,8 +10,10 @@ public partial class Cannon : Area2D
 		ready
 	}
 	private CannonState state = CannonState.ready;
-	bool being_interacted = false;
+	private bool being_interacted = false;
+	private float loading_status = 0.0f;
 
+	[Export] public float loading_speed = 0.1f;
 
 
 	// Called when the node enters the scene tree for the first time.
@@ -23,6 +25,19 @@ public partial class Cannon : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (state == CannonState.loading)
+		{
+			if (loading_status >= 100.0f)
+			{
+				loading_status = 0;
+				state = CannonState.ready;
+			}
+			else 
+			{
+				GD.Print(loading_status);
+				loading_status += loading_speed;
+			}
+		}
 	}
 
 	private void InteractHandler()
@@ -34,6 +49,7 @@ public partial class Cannon : Area2D
 			switch(state)
 			{
 				case CannonState.empty:
+					state = CannonState.loading;
 					break;
 
 				case CannonState.loading:
