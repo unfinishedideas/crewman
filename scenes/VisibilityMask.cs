@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MastVisibilityMask : Area2D
+public partial class VisibilityMask : Area2D
 {
 	Node2D ParentNode;
 
