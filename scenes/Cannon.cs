@@ -150,6 +150,7 @@ public partial class Cannon : Area2D
 			switch(new_state)
 			{
 				case CannonState.empty:
+					ready_to_fire = false;
 					LoadBarAnimator.Visible = false;
 					StatusAnimator.Visible = false;
 					break;
