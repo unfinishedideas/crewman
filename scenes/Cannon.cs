@@ -7,6 +7,13 @@ public partial class Cannon : Area2D
 	AnimatedSprite2D StatusAnimator;
 	AnimatedSprite2D LoadBarAnimator;
 
+	// Mess with these in the editor to tweak behavior!
+	[Export] public float loading_speed = 0.001f;
+	[Export] public float interaction_speed_bonus = 0.003f;
+	[Export] public float cooldown_speed = 0.002f;
+	[Export] public bool flip_status_icons = false;
+
+	// Private Variables for use in the script
 	enum CannonState {
 		empty,
 		loading,
@@ -23,13 +30,6 @@ public partial class Cannon : Area2D
 	private float loading_status = 0.0f;
 	private int num_loadbar_frames = 1;
 	private int num_coolbar_frames = 1;
-
-	
-	// Mess with these in the editor to tweak behavior!
-	[Export] public float loading_speed = 0.001f;
-	[Export] public float interaction_speed_bonus = 0.003f;
-	[Export] public float cooldown_speed = 0.002f;
-	[Export] public bool flip_status_icons = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -119,8 +119,7 @@ public partial class Cannon : Area2D
 					break;
 
 				case CannonState.ready:
-					if (ready_to_fire == true)
-					{
+					if (ready_to_fire == true) {
 						FireCannon();
 					}
 					break;
@@ -176,8 +175,7 @@ public partial class Cannon : Area2D
 	{
 		if (body.IsInGroup("Player")) {
 			in_interactable_range = true;
-			if (state == CannonState.loading)
-			{
+			if (state == CannonState.loading){
 				StatusAnimator.Play();
 			}
 		}
@@ -187,8 +185,7 @@ public partial class Cannon : Area2D
 	{
 		if (body.IsInGroup("Player")) {
 			in_interactable_range = false;
-			if (state == CannonState.loading)
-			{
+			if (state == CannonState.loading){
 				StatusAnimator.Stop();
 			}
 		}
