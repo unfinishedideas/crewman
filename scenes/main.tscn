@@ -291,7 +291,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("13_7oww8")]
 z_index = 2
-metadata/_edit_lock_ = true
+position = Vector2(-170, -65)
 
 [node name="Cannons" type="Node2D" parent="."]
 
@@ -314,18 +314,21 @@ metadata/_edit_lock_ = true
 z_index = 3
 position = Vector2(-176, 193)
 rotation = -3.14159
+flip_status = true
 metadata/_edit_lock_ = true
 
 [node name="CannonBottom_2" parent="Cannons" instance=ExtResource("12_d26fe")]
 z_index = 3
 position = Vector2(90, 193)
 rotation = -3.14159
+flip_status = true
 metadata/_edit_lock_ = true
 
 [node name="CannonBottom_3" parent="Cannons" instance=ExtResource("12_d26fe")]
 z_index = 3
 position = Vector2(356, 193)
 rotation = -3.14159
+flip_status = true
 metadata/_edit_lock_ = true
 
 [node name="Water" type="Node2D" parent="."]

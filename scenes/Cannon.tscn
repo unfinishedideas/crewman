@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dere7l3esysb8"]
+[gd_scene load_steps=34 format=3 uid="uid://dere7l3esysb8"]
 
 [ext_resource type="Texture2D" uid="uid://b2725bjo7vkur" path="res://assets/cannon/24.png" id="1_ekyuu"]
 [ext_resource type="Script" path="res://scenes/Cannon.cs" id="1_ufbxs"]
 [ext_resource type="Texture2D" uid="uid://blmorp6wqqig6" path="res://assets/fx/explosion-4.png" id="3_23kur"]
+[ext_resource type="Texture2D" uid="uid://c1mb14nwjyvq7" path="res://assets/ui/StarBounce.png" id="5_2ww8o"]
+[ext_resource type="Texture2D" uid="uid://d051vp36qivs" path="res://assets/ui/LoadBar2.png" id="5_tr1ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b7qv"]
 size = Vector2(44, 101)
@@ -107,6 +109,109 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmx7h"]
+atlas = ExtResource("5_2ww8o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjbki"]
+atlas = ExtResource("5_2ww8o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kytrd"]
+atlas = ExtResource("5_2ww8o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cln1e"]
+atlas = ExtResource("5_2ww8o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fimwf"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"loading",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmx7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjbki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kytrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cln1e")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppfut"]
+atlas = ExtResource("5_tr1ur")
+region = Rect2(192, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8naki"]
+atlas = ExtResource("5_tr1ur")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0ei5"]
+atlas = ExtResource("5_tr1ur")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o77iw"]
+atlas = ExtResource("5_tr1ur")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3w3v"]
+atlas = ExtResource("5_tr1ur")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvpkf"]
+atlas = ExtResource("5_tr1ur")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoius"]
+atlas = ExtResource("5_tr1ur")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tofrq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppfut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8naki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0ei5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o77iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3w3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvpkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoius")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="CannonArea2D" type="Area2D"]
 script = ExtResource("1_ufbxs")
 
@@ -130,6 +235,19 @@ visible = false
 position = Vector2(0, -104)
 sprite_frames = SubResource("SpriteFrames_3wu86")
 animation = &"fire"
+
+[node name="StatusAnimator" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 23)
+sprite_frames = SubResource("SpriteFrames_fimwf")
+animation = &"loading"
+
+[node name="LoadBarAnimator" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 19)
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_tofrq")
+frame = 4
+frame_progress = 0.144659
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

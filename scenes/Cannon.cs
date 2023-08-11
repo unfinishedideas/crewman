@@ -4,6 +4,8 @@ using System;
 public partial class Cannon : Area2D
 {
 	AnimatedSprite2D BarrelAnimator;
+	AnimatedSprite2D StatusAnimator;
+	AnimatedSprite2D LoadBarAnimator;
 	enum CannonState {
 		empty,
 		loading,
@@ -12,14 +14,26 @@ public partial class Cannon : Area2D
 	private CannonState state = CannonState.ready;
 	private bool being_interacted = false;
 	private float loading_status = 0.0f;
+	int num_loadbar_frames = 1;
 
-	[Export] public float loading_speed = 0.1f;
+	[Export] public float loading_speed = 0.001f;
+	[Export] public bool flip_status = false;
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		BarrelAnimator = GetNode<AnimatedSprite2D>("BarrelAnimator");
+		StatusAnimator = GetNode<AnimatedSprite2D>("StatusAnimator");
+		LoadBarAnimator = GetNode<AnimatedSprite2D>("LoadBarAnimator");
+		if (flip_status == true)
+		{
+			StatusAnimator.RotationDegrees = 180;
+			LoadBarAnimator.RotationDegrees = 180;
+		}
+
+		StatusAnimator.Play();
+		num_loadbar_frames = LoadBarAnimator.SpriteFrames.GetFrameCount("default");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,15 +41,16 @@ public partial class Cannon : Area2D
 	{
 		if (state == CannonState.loading && being_interacted == true)
 		{
-			if (loading_status >= 100.0f)
+			if (loading_status >= 1.0f)
 			{
 				loading_status = 0;
-				state = CannonState.ready;
+				SetCannonState(CannonState.ready);
 			}
 			else 
 			{
-				GD.Print(loading_status);
 				loading_status += loading_speed;
+				int frame = (int)Math.Floor(num_loadbar_frames * loading_status);
+				LoadBarAnimator.SetFrameAndProgress(frame, 0);
 			}
 		}
 	}
@@ -47,10 +62,11 @@ public partial class Cannon : Area2D
 			switch(state)
 			{
 				case CannonState.empty:
-					state = CannonState.loading;
+					SetCannonState(CannonState.loading);
 					break;
 
 				case CannonState.loading:
+					SetCannonState(CannonState.loading);
 					break;
 
 				case CannonState.ready:
@@ -69,6 +85,30 @@ public partial class Cannon : Area2D
 		BarrelAnimator.Visible = true;
 		BarrelAnimator.Animation = "fire";
 		BarrelAnimator.Play();
+	}
+
+	private void SetCannonState(CannonState new_state)
+	{
+		if (state != new_state)
+		{
+			state = new_state;
+			switch(new_state)
+			{
+				case CannonState.empty:
+					StatusAnimator.Animation = "empty";
+					break;
+				case CannonState.loading:
+					StatusAnimator.Animation = "loading";
+					LoadBarAnimator.Visible = true;
+					break;
+				case CannonState.ready:
+					StatusAnimator.Animation = "ready";
+					LoadBarAnimator.Visible = false;
+					break;
+				default:
+					break;
+			}
+		}
 	}
 
 	// Signals ---------------------------------------------------------------------------------------------------------
