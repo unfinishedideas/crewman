@@ -25,7 +25,7 @@ public partial class Cannon : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (state == CannonState.loading)
+		if (state == CannonState.loading && being_interacted == true)
 		{
 			if (loading_status >= 100.0f)
 			{
@@ -44,8 +44,6 @@ public partial class Cannon : Area2D
 	{
 		if (being_interacted)
 		{
-			GD.Print("interacting with: ");
-			GD.Print(this.Name);
 			switch(state)
 			{
 				case CannonState.empty:

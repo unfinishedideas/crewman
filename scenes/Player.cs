@@ -75,10 +75,6 @@ public partial class Player : CharacterBody2D
 			}
 
 			MoveAndCollide(velocity * (float)delta);
-			// if (collision != null)  // collision is returned from MoveAndCollide
-			// {
-			// 	GD.Print("I collided with ", ((Node)collision.GetCollider()).Name);
-			// }
 		}
 	}
 }

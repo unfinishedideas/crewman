@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cttmwq6tcwhal"]
+[gd_scene load_steps=32 format=3 uid="uid://cttmwq6tcwhal"]
 
 [ext_resource type="Texture2D" uid="uid://dd0kajvtfv482" path="res://assets/ship/Ship_mast.png" id="2_c5j1c"]
 [ext_resource type="Texture2D" uid="uid://b1ecf6ua55xsm" path="res://assets/ship/Ship_sail.png" id="3_5xvus"]
@@ -15,12 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://dere7l3esysb8" path="res://scenes/Cannon.tscn" id="12_d26fe"]
 [ext_resource type="Texture2D" uid="uid://b8m7rnoqb6aim" path="res://assets/ship/Ship_body_lower1.0.png" id="12_uakgm"]
 [ext_resource type="PackedScene" uid="uid://cjnjj3q7brpak" path="res://scenes/Player.tscn" id="13_7oww8"]
+[ext_resource type="Texture2D" uid="uid://do1jbjupcyt4g" path="res://assets/backgrounds/blacksquare.png" id="13_t4iy7"]
 [ext_resource type="Shader" path="res://scenes/water.gdshader" id="14_n1axm"]
 [ext_resource type="Texture2D" uid="uid://cf8w6o355ykha" path="res://assets/icon.svg" id="15_h12bi"]
 [ext_resource type="Texture2D" uid="uid://lx56pw5gjlm8" path="res://assets/backgrounds/water_texture.jpg" id="16_5cmnt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkpmn"]
-size = Vector2(41.5, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0fch"]
+size = Vector2(190.25, 299.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltgj3"]
 size = Vector2(51, 55)
@@ -33,6 +34,12 @@ size = Vector2(41.75, 352.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_if1r3"]
 size = Vector2(50.5, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bapkt"]
+size = Vector2(242, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhi8g"]
+size = Vector2(36.5, 268)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_853o8"]
 seed = 1120
@@ -69,7 +76,6 @@ shader_parameter/noise2 = SubResource("NoiseTexture2D_5jgtv")
 [node name="Ship" type="Area2D" parent="."]
 position = Vector2(107, -147)
 scale = Vector2(2, 1)
-metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="ShipDeckLower1_0" type="Sprite2D" parent="Ship"]
@@ -77,31 +83,40 @@ position = Vector2(-17.5, 182)
 scale = Vector2(5, 5)
 texture = ExtResource("9_s7lsl")
 
-[node name="ShipDeckUpper1_0" type="Sprite2D" parent="Ship"]
+[node name="UpperDecks" type="Node2D" parent="Ship"]
+
+[node name="ShipDeckUpper1_0" type="Sprite2D" parent="Ship/UpperDecks"]
 z_index = 1
 position = Vector2(49.9999, 150)
 scale = Vector2(5, 5)
 texture = ExtResource("10_xbkte")
+metadata/_edit_lock_ = true
 
-[node name="Wheel" type="StaticBody2D" parent="Ship"]
-
-[node name="ShipWheel1_0" type="Sprite2D" parent="Ship/Wheel"]
+[node name="ShipWheel1_0" type="Sprite2D" parent="Ship/UpperDecks"]
 z_index = 2
 position = Vector2(-357, 106)
 scale = Vector2(5, 5)
 texture = ExtResource("8_o2iuw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Wheel"]
-z_index = 2
-position = Vector2(-351.75, 130)
-shape = SubResource("RectangleShape2D_nkpmn")
+[node name="VisibilityMask" type="Area2D" parent="Ship/UpperDecks"]
+script = ExtResource("10_awvro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/UpperDecks/VisibilityMask"]
+position = Vector2(-317.375, 187.75)
+shape = SubResource("RectangleShape2D_t0fch")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ship/UpperDecks/VisibilityMask"]
+position = Vector2(285, 200)
+shape = SubResource("RectangleShape2D_t0fch")
 
 [node name="ShipRope1" type="Sprite2D" parent="Ship"]
 position = Vector2(-159, -156)
 scale = Vector2(5, 5)
 texture = ExtResource("4_yewqo")
+metadata/_edit_lock_ = true
 
 [node name="Mast" type="StaticBody2D" parent="Ship"]
+metadata/_edit_lock_ = true
 
 [node name="ShipSail" type="Sprite2D" parent="Ship/Mast"]
 z_index = 3
@@ -145,6 +160,7 @@ position = Vector2(-8, 98)
 shape = SubResource("RectangleShape2D_rhimv")
 
 [node name="ShipBodyUpper" type="StaticBody2D" parent="Ship"]
+metadata/_edit_lock_ = true
 
 [node name="ShipBodyUpper1_0" type="Sprite2D" parent="Ship/ShipBodyUpper"]
 z_index = 1
@@ -160,6 +176,7 @@ shape = SubResource("RectangleShape2D_lnv60")
 polygon = PackedVector2Array(573.5, 104, 419, -47, 297, -46, 179.5, 20, -204.5, 22, -303, -48, -462.5, -47, -494.5, -30, -503.5, -104, 581, -97)
 
 [node name="ShipBodyLower" type="StaticBody2D" parent="Ship"]
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/ShipBodyLower"]
 polygon = PackedVector2Array(-464, 286, -319.5, 287, -230, 347, 193.5, 353, 300, 286, 403.5, 290, 576.5, 122, 558, 46, 610, 36, 620, 142, 517, 297, 396.5, 389, 139.5, 453, -323, 438, -441.5, 386)
@@ -173,6 +190,93 @@ z_index = 3
 position = Vector2(118, 329)
 scale = Vector2(5, 5)
 texture = ExtResource("12_uakgm")
+
+[node name="InvisibleWalls" type="StaticBody2D" parent="Ship"]
+
+[node name="Blacksquare" type="Sprite2D" parent="Ship/InvisibleWalls"]
+position = Vector2(-274.26, 359.25)
+scale = Vector2(0.370229, 0.604089)
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(-455.097, -385.705)
+scale = Vector2(0.293814, 1.87385)
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare2" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(-255.22, -588.282)
+scale = Vector2(1.3866, 0.453846)
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare3" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(13.4912, -543.876)
+rotation = 0.406765
+scale = Vector2(0.904684, 0.365327)
+skew = -0.12753
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare4" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(1552.44, -75.32)
+scale = Vector2(2.29897, 0.544615)
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare5" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(1412.49, -561.051)
+rotation = -0.331176
+scale = Vector2(1.37504, 0.372315)
+skew = 0.106197
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare6" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(1686.82, -593.662)
+scale = Vector2(1.43814, 0.413846)
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare7" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(2047.41, -361.288)
+scale = Vector2(1.81959, 0.458462)
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare8" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(1977.18, -300.452)
+scale = Vector2(1.30412, 1.28923)
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare9" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(2011.92, -484.32)
+rotation = 0.521329
+scale = Vector2(1.63434, 0.424301)
+skew = -0.156207
+texture = ExtResource("13_t4iy7")
+
+[node name="Blacksquare10" type="Sprite2D" parent="Ship/InvisibleWalls/Blacksquare"]
+position = Vector2(1880.62, -478.82)
+scale = Vector2(0.546392, 0.563077)
+texture = ExtResource("13_t4iy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/InvisibleWalls"]
+position = Vector2(-346, 302)
+shape = SubResource("RectangleShape2D_bapkt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ship/InvisibleWalls"]
+position = Vector2(-344, 51.5)
+shape = SubResource("RectangleShape2D_bapkt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ship/InvisibleWalls"]
+position = Vector2(310.5, 48)
+shape = SubResource("RectangleShape2D_bapkt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ship/InvisibleWalls"]
+position = Vector2(311, 297)
+shape = SubResource("RectangleShape2D_bapkt")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Ship/InvisibleWalls"]
+position = Vector2(412.75, 165)
+shape = SubResource("RectangleShape2D_nhi8g")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Ship/InvisibleWalls"]
+position = Vector2(-446.5, 178)
+shape = SubResource("RectangleShape2D_nhi8g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-3, 9)
@@ -205,30 +309,43 @@ metadata/_edit_lock_ = true
 [node name="CannonTop_1" parent="." instance=ExtResource("12_d26fe")]
 z_index = 1
 position = Vector2(-176, -118)
+metadata/_edit_lock_ = true
 
 [node name="CannonTop_2" parent="." instance=ExtResource("12_d26fe")]
 z_index = 1
 position = Vector2(90, -118)
+metadata/_edit_lock_ = true
 
 [node name="CannonTop_3" parent="." instance=ExtResource("12_d26fe")]
 z_index = 1
 position = Vector2(356, -118)
+metadata/_edit_lock_ = true
 
 [node name="CannonBottom_1" parent="." instance=ExtResource("12_d26fe")]
 z_index = 3
 position = Vector2(-176, 193)
 rotation = 3.14159
+metadata/_edit_lock_ = true
 
 [node name="CannonBottom_2" parent="." instance=ExtResource("12_d26fe")]
 z_index = 3
 position = Vector2(90, 193)
 rotation = 3.14159
+metadata/_edit_lock_ = true
 
 [node name="CannonBottom_3" parent="." instance=ExtResource("12_d26fe")]
 z_index = 3
 position = Vector2(356, 193)
 rotation = 3.14159
+metadata/_edit_lock_ = true
 
+[node name="Blacksquare" type="Sprite2D" parent="."]
+position = Vector2(-356, -87)
+scale = Vector2(0.110687, 0.201673)
+texture = ExtResource("13_t4iy7")
+
+[connection signal="body_entered" from="Ship/UpperDecks/VisibilityMask" to="Ship/UpperDecks/VisibilityMask" method="_on_body_entered"]
+[connection signal="body_exited" from="Ship/UpperDecks/VisibilityMask" to="Ship/UpperDecks/VisibilityMask" method="_on_body_exited"]
 [connection signal="body_entered" from="Ship/Mast/VisibilityMask" to="Ship/Mast/VisibilityMask" method="_on_body_entered"]
 [connection signal="body_exited" from="Ship/Mast/VisibilityMask" to="Ship/Mast/VisibilityMask" method="_on_body_exited"]
 [connection signal="PlayerInteracting" from="Player" to="CannonTop_1" method="_on_player_player_interacting"]
