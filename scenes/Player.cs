@@ -10,7 +10,7 @@ public partial class Player : CharacterBody2D
 	public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
 
 	private bool facingRight;
-	AnimatedSprite2D animatedSprite2D;
+	AnimatedSprite2D PlayerAnimator;
 
     [Signal] public delegate void PlayerInteractingEventHandler();
     [Signal] public delegate void PlayerStoppedInteractingEventHandler();
@@ -19,41 +19,27 @@ public partial class Player : CharacterBody2D
 	public override void _Ready()
 	{
 		facingRight = true;
-		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		animatedSprite2D.Play();
+		PlayerAnimator = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		PlayerAnimator.Play();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		// Input Check
-		if (Input.IsActionPressed("interact"))
-		{
-			animatedSprite2D.Animation = "interact";
-            EmitSignal(SignalName.PlayerInteracting);
-		}
-        else
-        {
-            EmitSignal(SignalName.PlayerStoppedInteracting);
-        }
-
         var velocity = Vector2.Zero; // The player's movement vector.
-        if (Input.IsActionPressed("move_right"))
-        {
+        if (Input.IsActionPressed("move_right")) {
             velocity.X += 1;
             facingRight = true;
         }
-        if (Input.IsActionPressed("move_left"))
-        {
+        if (Input.IsActionPressed("move_left")) {
             velocity.X -= 1;
             facingRight = false;
         }
-        if (Input.IsActionPressed("move_down"))
-        {
+        if (Input.IsActionPressed("move_down")) {
             velocity.Y += 1;
         }
-        if (Input.IsActionPressed("move_up"))
-        {
+        if (Input.IsActionPressed("move_up")) {
             velocity.Y -= 1;
         }
 
@@ -68,14 +54,26 @@ public partial class Player : CharacterBody2D
             RotationDegrees = 180;
         }
 
-        if (velocity.Length() > 0)
-        {
-            velocity = velocity.Normalized() * Speed;
-            animatedSprite2D.Animation = "walk";
+        bool is_interacting = false;
+		if (Input.IsActionPressed("interact")) {
+            is_interacting = true;
+            EmitSignal(SignalName.PlayerInteracting);
+		}
+        else {
+            EmitSignal(SignalName.PlayerStoppedInteracting);
         }
-        else
-        {
-            animatedSprite2D.Animation = "idle";
+
+        if (velocity.Length() > 0) {
+            velocity = velocity.Normalized() * Speed;
+            PlayerAnimator.Animation = "walk";
+        }
+        else {
+            if (is_interacting == true) {
+                PlayerAnimator.Animation = "interact";
+            }
+            else {
+                PlayerAnimator.Animation = "idle";
+            }
         }
 
         MoveAndCollide(velocity * (float)delta);

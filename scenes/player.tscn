@@ -1,185 +1,188 @@
-[gd_scene load_steps=66 format=3 uid="uid://cjnjj3q7brpak"]
+[gd_scene load_steps=69 format=3 uid="uid://cjnjj3q7brpak"]
 
 [ext_resource type="Script" path="res://scenes/Player.cs" id="1_kspb7"]
-[ext_resource type="Texture2D" uid="uid://s7unkirpxo24" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/1.png" id="1_nxkm2"]
-[ext_resource type="Texture2D" uid="uid://bgnvwrpvn8lae" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/2.png" id="2_fdgsi"]
-[ext_resource type="Texture2D" uid="uid://bvd63muersvn5" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/3.png" id="3_xjo6r"]
-[ext_resource type="Texture2D" uid="uid://b28isx1xdo50a" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/4.png" id="4_dk1a5"]
-[ext_resource type="Texture2D" uid="uid://c7kqmcinbidgk" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/5.png" id="5_cghe3"]
-[ext_resource type="Texture2D" uid="uid://bt10a1v8k281u" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/6.png" id="6_sakr1"]
-[ext_resource type="Texture2D" uid="uid://s7edgpjtfi65" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/7.png" id="7_7tego"]
-[ext_resource type="Texture2D" uid="uid://q5c4cnqm0j8t" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/8.png" id="8_0kyad"]
-[ext_resource type="Texture2D" uid="uid://ubp43ay4p2l1" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/9.png" id="9_4pnmy"]
-[ext_resource type="Texture2D" uid="uid://dvrpohafbtaw2" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/10.png" id="10_nb11a"]
-[ext_resource type="Texture2D" uid="uid://c65g7484ab15j" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/11.png" id="11_qlj5f"]
-[ext_resource type="Texture2D" uid="uid://dpa1cbbr74xs7" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/12.png" id="12_rxaau"]
-[ext_resource type="Texture2D" uid="uid://cp145d0ebjbne" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/13.png" id="13_nc8t4"]
-[ext_resource type="Texture2D" uid="uid://birm0xwim427m" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/14.png" id="14_jydn7"]
-[ext_resource type="Texture2D" uid="uid://bbc2o5aqrbwu8" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/15.png" id="15_1d5le"]
-[ext_resource type="Texture2D" uid="uid://chilqa0t3niqv" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/16.png" id="16_4k6yw"]
-[ext_resource type="Texture2D" uid="uid://d0aimopilk1eg" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/17.png" id="17_3mfh2"]
-[ext_resource type="Texture2D" uid="uid://t8hw5dqjoytj" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/18.png" id="18_yysah"]
-[ext_resource type="Texture2D" uid="uid://c78ofp435atm1" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/19.png" id="19_jhp2d"]
-[ext_resource type="Texture2D" uid="uid://cmmhsftcs67x4" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/20.png" id="20_mvpko"]
-[ext_resource type="Texture2D" uid="uid://d2u4usf8xpmi8" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/21.png" id="21_j2d42"]
-[ext_resource type="Texture2D" uid="uid://cw5sdw3say16m" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/22.png" id="22_66oay"]
-[ext_resource type="Texture2D" uid="uid://b8w3qi0eia4um" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/23.png" id="23_ae1nf"]
-[ext_resource type="Texture2D" uid="uid://bjhjkoyfnrso" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/24.png" id="24_ujipx"]
-[ext_resource type="Texture2D" uid="uid://b17evjw2prng7" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/25.png" id="25_xuwq8"]
-[ext_resource type="Texture2D" uid="uid://cef325eagyhtb" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/26.png" id="26_y3xm6"]
-[ext_resource type="Texture2D" uid="uid://dmdqdi2xvq8vi" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/27.png" id="27_qfwf6"]
-[ext_resource type="Texture2D" uid="uid://bkpxcwxr72k3n" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/28.png" id="28_nvylj"]
-[ext_resource type="Texture2D" uid="uid://b13w38ndlts31" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/29.png" id="29_f4061"]
-[ext_resource type="Texture2D" uid="uid://hftyst00rrue" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/30.png" id="30_b22uj"]
-[ext_resource type="Texture2D" uid="uid://crntbj4scimt3" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/31.png" id="31_3h0mc"]
-[ext_resource type="Texture2D" uid="uid://dpn4qr4e25cg1" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/32.png" id="32_lpxt0"]
-[ext_resource type="Texture2D" uid="uid://dtm23qggi2mlq" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/33.png" id="33_o3dol"]
-[ext_resource type="Texture2D" uid="uid://buvorf8e3qp1" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/34.png" id="34_8lobe"]
-[ext_resource type="Texture2D" uid="uid://hban3hgsclxu" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/35.png" id="35_ss585"]
-[ext_resource type="Texture2D" uid="uid://bcig5o8xkq2do" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/36.png" id="36_ggvsl"]
-[ext_resource type="Texture2D" uid="uid://14o06e2j80nn" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/37.png" id="37_w46n5"]
-[ext_resource type="Texture2D" uid="uid://b1cu6omiek80f" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/1-Idle/38.png" id="38_u6641"]
-[ext_resource type="Texture2D" uid="uid://dagcgaaw01fpf" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/8-Pick (Bomb)/1.png" id="39_8sro4"]
-[ext_resource type="Texture2D" uid="uid://b0rexogr0qgg6" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/8-Pick (Bomb)/2.png" id="40_vpjgs"]
-[ext_resource type="Texture2D" uid="uid://btatm6gncyy4d" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/8-Pick (Bomb)/3.png" id="41_1ol0v"]
-[ext_resource type="Texture2D" uid="uid://vbktuaf2gq6s" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/8-Pick (Bomb)/4.png" id="42_qsyu0"]
-[ext_resource type="Texture2D" uid="uid://cklq7sj28x250" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/8-Pick (Bomb)/5.png" id="43_3sfq5"]
-[ext_resource type="Texture2D" uid="uid://1wr5a2rn3tiq" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/8-Pick (Bomb)/6.png" id="44_dl3ty"]
-[ext_resource type="Texture2D" uid="uid://bnyaanxha1wfk" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/8-Pick (Bomb)/7.png" id="45_0l45k"]
-[ext_resource type="Texture2D" uid="uid://cy51wygcr3co1" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/8-Pick (Bomb)/8.png" id="46_cme74"]
-[ext_resource type="Texture2D" uid="uid://1cv12us0jc81" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/1.png" id="47_x7ccf"]
-[ext_resource type="Texture2D" uid="uid://djmyxnm14qrxd" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/2.png" id="48_cgxqx"]
-[ext_resource type="Texture2D" uid="uid://bdbq5lg6ed6sv" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/3.png" id="49_obstr"]
-[ext_resource type="Texture2D" uid="uid://b6308c50dd1af" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/4.png" id="50_3568p"]
-[ext_resource type="Texture2D" uid="uid://bqq0pfyitctm4" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/5.png" id="51_q8kvh"]
-[ext_resource type="Texture2D" uid="uid://coq0l7hthlxjw" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/6.png" id="52_4i6g2"]
-[ext_resource type="Texture2D" uid="uid://b3qbnkb6n52au" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/7.png" id="53_6upou"]
-[ext_resource type="Texture2D" uid="uid://co1d60xoiwwd2" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/8.png" id="54_x1qsw"]
-[ext_resource type="Texture2D" uid="uid://dh6cn60ljm265" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/9.png" id="55_tasmf"]
-[ext_resource type="Texture2D" uid="uid://dhp8och55tqwk" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/10.png" id="56_jmmsm"]
-[ext_resource type="Texture2D" uid="uid://cpihikw8cux0p" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/11.png" id="57_qtgm2"]
-[ext_resource type="Texture2D" uid="uid://c2a7etlbtq452" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/12.png" id="58_blqpa"]
-[ext_resource type="Texture2D" uid="uid://cr3l3jojqsphs" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/13.png" id="59_xfj1c"]
-[ext_resource type="Texture2D" uid="uid://dgdsl5o740lu4" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/14.png" id="60_1ki16"]
-[ext_resource type="Texture2D" uid="uid://7bv0ioeml60n" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/15.png" id="61_ed55v"]
-[ext_resource type="Texture2D" uid="uid://cpktfxddxeude" path="res://assets/Pirate Bomb/Sprites/4-Enemy-Big Guy/2-Run/16.png" id="62_kewrn"]
+[ext_resource type="Texture2D" uid="uid://s7unkirpxo24" path="res://assets/player/4-Enemy-Big Guy/1-Idle/1.png" id="2_g7wf5"]
+[ext_resource type="Texture2D" uid="uid://bgnvwrpvn8lae" path="res://assets/player/4-Enemy-Big Guy/1-Idle/2.png" id="3_sen6i"]
+[ext_resource type="Texture2D" uid="uid://bvd63muersvn5" path="res://assets/player/4-Enemy-Big Guy/1-Idle/3.png" id="4_dnhrd"]
+[ext_resource type="Texture2D" uid="uid://b28isx1xdo50a" path="res://assets/player/4-Enemy-Big Guy/1-Idle/4.png" id="5_f27a7"]
+[ext_resource type="Texture2D" uid="uid://c7kqmcinbidgk" path="res://assets/player/4-Enemy-Big Guy/1-Idle/5.png" id="6_e2foy"]
+[ext_resource type="Texture2D" uid="uid://bt10a1v8k281u" path="res://assets/player/4-Enemy-Big Guy/1-Idle/6.png" id="7_kpst2"]
+[ext_resource type="Texture2D" uid="uid://s7edgpjtfi65" path="res://assets/player/4-Enemy-Big Guy/1-Idle/7.png" id="8_ue2e4"]
+[ext_resource type="Texture2D" uid="uid://q5c4cnqm0j8t" path="res://assets/player/4-Enemy-Big Guy/1-Idle/8.png" id="9_1723r"]
+[ext_resource type="Texture2D" uid="uid://ubp43ay4p2l1" path="res://assets/player/4-Enemy-Big Guy/1-Idle/9.png" id="10_g6x3n"]
+[ext_resource type="Texture2D" uid="uid://dvrpohafbtaw2" path="res://assets/player/4-Enemy-Big Guy/1-Idle/10.png" id="11_l3pgh"]
+[ext_resource type="Texture2D" uid="uid://c65g7484ab15j" path="res://assets/player/4-Enemy-Big Guy/1-Idle/11.png" id="12_qe1h1"]
+[ext_resource type="Texture2D" uid="uid://dpa1cbbr74xs7" path="res://assets/player/4-Enemy-Big Guy/1-Idle/12.png" id="13_iplqe"]
+[ext_resource type="Texture2D" uid="uid://cp145d0ebjbne" path="res://assets/player/4-Enemy-Big Guy/1-Idle/13.png" id="14_vusib"]
+[ext_resource type="Texture2D" uid="uid://birm0xwim427m" path="res://assets/player/4-Enemy-Big Guy/1-Idle/14.png" id="15_jr7lp"]
+[ext_resource type="Texture2D" uid="uid://bbc2o5aqrbwu8" path="res://assets/player/4-Enemy-Big Guy/1-Idle/15.png" id="16_h3l5n"]
+[ext_resource type="Texture2D" uid="uid://chilqa0t3niqv" path="res://assets/player/4-Enemy-Big Guy/1-Idle/16.png" id="17_nq7nr"]
+[ext_resource type="Texture2D" uid="uid://d0aimopilk1eg" path="res://assets/player/4-Enemy-Big Guy/1-Idle/17.png" id="18_vl83w"]
+[ext_resource type="Texture2D" uid="uid://t8hw5dqjoytj" path="res://assets/player/4-Enemy-Big Guy/1-Idle/18.png" id="19_x7c60"]
+[ext_resource type="Texture2D" uid="uid://c78ofp435atm1" path="res://assets/player/4-Enemy-Big Guy/1-Idle/19.png" id="20_gsr5r"]
+[ext_resource type="Texture2D" uid="uid://cmmhsftcs67x4" path="res://assets/player/4-Enemy-Big Guy/1-Idle/20.png" id="21_yhtuf"]
+[ext_resource type="Texture2D" uid="uid://d2u4usf8xpmi8" path="res://assets/player/4-Enemy-Big Guy/1-Idle/21.png" id="22_olr1e"]
+[ext_resource type="Texture2D" uid="uid://cw5sdw3say16m" path="res://assets/player/4-Enemy-Big Guy/1-Idle/22.png" id="23_hmt6d"]
+[ext_resource type="Texture2D" uid="uid://b8w3qi0eia4um" path="res://assets/player/4-Enemy-Big Guy/1-Idle/23.png" id="24_akfib"]
+[ext_resource type="Texture2D" uid="uid://bjhjkoyfnrso" path="res://assets/player/4-Enemy-Big Guy/1-Idle/24.png" id="25_trgqc"]
+[ext_resource type="Texture2D" uid="uid://b17evjw2prng7" path="res://assets/player/4-Enemy-Big Guy/1-Idle/25.png" id="26_47h5q"]
+[ext_resource type="Texture2D" uid="uid://cef325eagyhtb" path="res://assets/player/4-Enemy-Big Guy/1-Idle/26.png" id="27_n3ml5"]
+[ext_resource type="Texture2D" uid="uid://dmdqdi2xvq8vi" path="res://assets/player/4-Enemy-Big Guy/1-Idle/27.png" id="28_bxa8y"]
+[ext_resource type="Texture2D" uid="uid://bkpxcwxr72k3n" path="res://assets/player/4-Enemy-Big Guy/1-Idle/28.png" id="29_i5khp"]
+[ext_resource type="Texture2D" uid="uid://b13w38ndlts31" path="res://assets/player/4-Enemy-Big Guy/1-Idle/29.png" id="30_ss1g3"]
+[ext_resource type="Texture2D" uid="uid://hftyst00rrue" path="res://assets/player/4-Enemy-Big Guy/1-Idle/30.png" id="31_o2rl0"]
+[ext_resource type="Texture2D" uid="uid://crntbj4scimt3" path="res://assets/player/4-Enemy-Big Guy/1-Idle/31.png" id="32_7px3u"]
+[ext_resource type="Texture2D" uid="uid://dpn4qr4e25cg1" path="res://assets/player/4-Enemy-Big Guy/1-Idle/32.png" id="33_cpkl8"]
+[ext_resource type="Texture2D" uid="uid://dtm23qggi2mlq" path="res://assets/player/4-Enemy-Big Guy/1-Idle/33.png" id="34_1eaog"]
+[ext_resource type="Texture2D" uid="uid://buvorf8e3qp1" path="res://assets/player/4-Enemy-Big Guy/1-Idle/34.png" id="35_oa4mw"]
+[ext_resource type="Texture2D" uid="uid://hban3hgsclxu" path="res://assets/player/4-Enemy-Big Guy/1-Idle/35.png" id="36_tp8at"]
+[ext_resource type="Texture2D" uid="uid://bcig5o8xkq2do" path="res://assets/player/4-Enemy-Big Guy/1-Idle/36.png" id="37_tej3x"]
+[ext_resource type="Texture2D" uid="uid://14o06e2j80nn" path="res://assets/player/4-Enemy-Big Guy/1-Idle/37.png" id="38_r6620"]
+[ext_resource type="Texture2D" uid="uid://b1cu6omiek80f" path="res://assets/player/4-Enemy-Big Guy/1-Idle/38.png" id="39_68ap7"]
+[ext_resource type="Texture2D" uid="uid://cvpn3tls3ouj3" path="res://assets/player/4-Enemy-Big Guy/7-Attack/1.png" id="40_6lqbw"]
+[ext_resource type="Texture2D" uid="uid://r1jtm0bjf17d" path="res://assets/player/4-Enemy-Big Guy/7-Attack/2.png" id="41_j8hn5"]
+[ext_resource type="Texture2D" uid="uid://blr7mwvo1hhhs" path="res://assets/player/4-Enemy-Big Guy/7-Attack/3.png" id="42_80prf"]
+[ext_resource type="Texture2D" uid="uid://blkw1ux6ipx6e" path="res://assets/player/4-Enemy-Big Guy/7-Attack/4.png" id="43_uddsn"]
+[ext_resource type="Texture2D" uid="uid://jlcx4v42aw2y" path="res://assets/player/4-Enemy-Big Guy/7-Attack/5.png" id="44_c3wy6"]
+[ext_resource type="Texture2D" uid="uid://cvf7d0yd116wh" path="res://assets/player/4-Enemy-Big Guy/7-Attack/6.png" id="45_ifba6"]
+[ext_resource type="Texture2D" uid="uid://dabkiqac023ko" path="res://assets/player/4-Enemy-Big Guy/7-Attack/7.png" id="46_l4mes"]
+[ext_resource type="Texture2D" uid="uid://bvkru17ruker4" path="res://assets/player/4-Enemy-Big Guy/7-Attack/8.png" id="47_o4q0x"]
+[ext_resource type="Texture2D" uid="uid://b8tm5ncjsdhq2" path="res://assets/player/4-Enemy-Big Guy/7-Attack/9.png" id="48_8acjv"]
+[ext_resource type="Texture2D" uid="uid://l5nqc7a025oc" path="res://assets/player/4-Enemy-Big Guy/7-Attack/10.png" id="49_vgllj"]
+[ext_resource type="Texture2D" uid="uid://dgkklrm2p3gjw" path="res://assets/player/4-Enemy-Big Guy/7-Attack/11.png" id="50_cy76r"]
+[ext_resource type="Texture2D" uid="uid://1cv12us0jc81" path="res://assets/player/4-Enemy-Big Guy/2-Run/1.png" id="51_7u8p6"]
+[ext_resource type="Texture2D" uid="uid://djmyxnm14qrxd" path="res://assets/player/4-Enemy-Big Guy/2-Run/2.png" id="52_w1akm"]
+[ext_resource type="Texture2D" uid="uid://bdbq5lg6ed6sv" path="res://assets/player/4-Enemy-Big Guy/2-Run/3.png" id="53_7ijvd"]
+[ext_resource type="Texture2D" uid="uid://b6308c50dd1af" path="res://assets/player/4-Enemy-Big Guy/2-Run/4.png" id="54_px5vi"]
+[ext_resource type="Texture2D" uid="uid://bqq0pfyitctm4" path="res://assets/player/4-Enemy-Big Guy/2-Run/5.png" id="55_dq7vh"]
+[ext_resource type="Texture2D" uid="uid://coq0l7hthlxjw" path="res://assets/player/4-Enemy-Big Guy/2-Run/6.png" id="56_uvd0r"]
+[ext_resource type="Texture2D" uid="uid://b3qbnkb6n52au" path="res://assets/player/4-Enemy-Big Guy/2-Run/7.png" id="57_0cfpy"]
+[ext_resource type="Texture2D" uid="uid://co1d60xoiwwd2" path="res://assets/player/4-Enemy-Big Guy/2-Run/8.png" id="58_p5tg2"]
+[ext_resource type="Texture2D" uid="uid://dh6cn60ljm265" path="res://assets/player/4-Enemy-Big Guy/2-Run/9.png" id="59_217ur"]
+[ext_resource type="Texture2D" uid="uid://dhp8och55tqwk" path="res://assets/player/4-Enemy-Big Guy/2-Run/10.png" id="60_tcjnw"]
+[ext_resource type="Texture2D" uid="uid://cpihikw8cux0p" path="res://assets/player/4-Enemy-Big Guy/2-Run/11.png" id="61_ucwfk"]
+[ext_resource type="Texture2D" uid="uid://c2a7etlbtq452" path="res://assets/player/4-Enemy-Big Guy/2-Run/12.png" id="62_0b3yk"]
+[ext_resource type="Texture2D" uid="uid://cr3l3jojqsphs" path="res://assets/player/4-Enemy-Big Guy/2-Run/13.png" id="63_cd0hv"]
+[ext_resource type="Texture2D" uid="uid://dgdsl5o740lu4" path="res://assets/player/4-Enemy-Big Guy/2-Run/14.png" id="64_jnd5l"]
+[ext_resource type="Texture2D" uid="uid://7bv0ioeml60n" path="res://assets/player/4-Enemy-Big Guy/2-Run/15.png" id="65_ch67t"]
+[ext_resource type="Texture2D" uid="uid://cpktfxddxeude" path="res://assets/player/4-Enemy-Big Guy/2-Run/16.png" id="66_nfx4v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8swsl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nxkm2")
+"texture": ExtResource("2_g7wf5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_fdgsi")
+"texture": ExtResource("3_sen6i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_xjo6r")
+"texture": ExtResource("4_dnhrd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_dk1a5")
+"texture": ExtResource("5_f27a7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_cghe3")
+"texture": ExtResource("6_e2foy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_sakr1")
+"texture": ExtResource("7_kpst2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_7tego")
+"texture": ExtResource("8_ue2e4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_0kyad")
+"texture": ExtResource("9_1723r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_4pnmy")
+"texture": ExtResource("10_g6x3n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_nb11a")
+"texture": ExtResource("11_l3pgh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_qlj5f")
+"texture": ExtResource("12_qe1h1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_rxaau")
+"texture": ExtResource("13_iplqe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_nc8t4")
+"texture": ExtResource("14_vusib")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_jydn7")
+"texture": ExtResource("15_jr7lp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_1d5le")
+"texture": ExtResource("16_h3l5n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_4k6yw")
+"texture": ExtResource("17_nq7nr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_3mfh2")
+"texture": ExtResource("18_vl83w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_yysah")
+"texture": ExtResource("19_x7c60")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_jhp2d")
+"texture": ExtResource("20_gsr5r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_mvpko")
+"texture": ExtResource("21_yhtuf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_j2d42")
+"texture": ExtResource("22_olr1e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_66oay")
+"texture": ExtResource("23_hmt6d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_ae1nf")
+"texture": ExtResource("24_akfib")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_ujipx")
+"texture": ExtResource("25_trgqc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_xuwq8")
+"texture": ExtResource("26_47h5q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_y3xm6")
+"texture": ExtResource("27_n3ml5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_qfwf6")
+"texture": ExtResource("28_bxa8y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_nvylj")
+"texture": ExtResource("29_i5khp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("29_f4061")
+"texture": ExtResource("30_ss1g3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_b22uj")
+"texture": ExtResource("31_o2rl0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_3h0mc")
+"texture": ExtResource("32_7px3u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_lpxt0")
+"texture": ExtResource("33_cpkl8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("33_o3dol")
+"texture": ExtResource("34_1eaog")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_8lobe")
+"texture": ExtResource("35_oa4mw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_ss585")
+"texture": ExtResource("36_tp8at")
 }, {
 "duration": 1.0,
-"texture": ExtResource("36_ggvsl")
+"texture": ExtResource("37_tej3x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_w46n5")
+"texture": ExtResource("38_r6620")
 }, {
 "duration": 1.0,
-"texture": ExtResource("38_u6641")
+"texture": ExtResource("39_68ap7")
 }],
 "loop": true,
 "name": &"idle",
@@ -187,28 +190,37 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("39_8sro4")
+"texture": ExtResource("40_6lqbw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_vpjgs")
+"texture": ExtResource("41_j8hn5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("41_1ol0v")
+"texture": ExtResource("42_80prf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("42_qsyu0")
+"texture": ExtResource("43_uddsn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("43_3sfq5")
+"texture": ExtResource("44_c3wy6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("44_dl3ty")
+"texture": ExtResource("45_ifba6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("45_0l45k")
+"texture": ExtResource("46_l4mes")
 }, {
 "duration": 1.0,
-"texture": ExtResource("46_cme74")
+"texture": ExtResource("47_o4q0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_8acjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_vgllj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_cy76r")
 }],
 "loop": true,
 "name": &"interact",
@@ -216,52 +228,52 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("47_x7ccf")
+"texture": ExtResource("51_7u8p6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("48_cgxqx")
+"texture": ExtResource("52_w1akm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("49_obstr")
+"texture": ExtResource("53_7ijvd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("50_3568p")
+"texture": ExtResource("54_px5vi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("51_q8kvh")
+"texture": ExtResource("55_dq7vh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("52_4i6g2")
+"texture": ExtResource("56_uvd0r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("53_6upou")
+"texture": ExtResource("57_0cfpy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("54_x1qsw")
+"texture": ExtResource("58_p5tg2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("55_tasmf")
+"texture": ExtResource("59_217ur")
 }, {
 "duration": 1.0,
-"texture": ExtResource("56_jmmsm")
+"texture": ExtResource("60_tcjnw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("57_qtgm2")
+"texture": ExtResource("61_ucwfk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("58_blqpa")
+"texture": ExtResource("62_0b3yk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("59_xfj1c")
+"texture": ExtResource("63_cd0hv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("60_1ki16")
+"texture": ExtResource("64_jnd5l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("61_ed55v")
+"texture": ExtResource("65_ch67t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("62_kewrn")
+"texture": ExtResource("66_nfx4v")
 }],
 "loop": true,
 "name": &"walk",
@@ -278,8 +290,8 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8swsl")
-animation = &"idle"
-frame_progress = 0.0508143
+animation = &"interact"
+frame_progress = 0.633368
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 11)
