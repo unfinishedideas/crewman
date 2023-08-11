@@ -12,6 +12,8 @@ public partial class Player : CharacterBody2D
 	private bool facingRight;
 	AnimatedSprite2D animatedSprite2D;
 
+    [Signal] public delegate void PlayerInteractingEventHandler();
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -27,6 +29,7 @@ public partial class Player : CharacterBody2D
 		if (Input.IsActionPressed("interact"))
 		{
 			animatedSprite2D.Animation = "interact";
+            EmitSignal(SignalName.PlayerInteracting);
 		}
 		else
 		{

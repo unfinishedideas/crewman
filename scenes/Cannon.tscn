@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dere7l3esysb8"]
+[gd_scene load_steps=19 format=3 uid="uid://dere7l3esysb8"]
 
 [ext_resource type="Texture2D" uid="uid://b2725bjo7vkur" path="res://assets/cannon/24.png" id="1_ekyuu"]
 [ext_resource type="Script" path="res://scenes/Cannon.cs" id="1_ufbxs"]
 [ext_resource type="Texture2D" uid="uid://blmorp6wqqig6" path="res://assets/fx/explosion-4.png" id="3_23kur"]
-[ext_resource type="Script" path="res://scenes/CannonStateMachine.cs" id="4_nmnwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b7qv"]
 size = Vector2(44, 101)
@@ -61,6 +60,11 @@ region = Rect2(1408, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3wu86"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4nips")
@@ -98,8 +102,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_44gq7")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"fire",
 "speed": 24.0
 }]
 
@@ -124,19 +128,8 @@ shape = SubResource("CircleShape2D_gjrcy")
 [node name="BarrelAnimator" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -104)
 sprite_frames = SubResource("SpriteFrames_3wu86")
-frame = 5
-frame_progress = 0.514063
-
-[node name="CannonStateMachine" type="Node2D" parent="."]
-script = ExtResource("4_nmnwc")
-
-[node name="States" type="Node2D" parent="CannonStateMachine"]
-
-[node name="Empty" type="Node" parent="CannonStateMachine/States"]
-
-[node name="Loading" type="Node" parent="CannonStateMachine/States"]
-
-[node name="Firing" type="Node" parent="CannonStateMachine/States"]
+animation = &"fire"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_finished" from="BarrelAnimator" to="." method="_on_barrel_animator_animation_finished"]

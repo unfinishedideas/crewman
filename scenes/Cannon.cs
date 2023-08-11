@@ -3,21 +3,66 @@ using System;
 
 public partial class Cannon : Area2D
 {
+	AnimatedSprite2D BarrelAnimator;
+	enum CannonState {
+		empty,
+		loading,
+		ready
+	}
+	private CannonState state = CannonState.ready;
+	bool being_interacted = false;
+
+
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		BarrelAnimator = GetNode<AnimatedSprite2D>("BarrelAnimator");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
-	
+
+	private void InteractHandler()
+	{
+		if (being_interacted)
+		{
+			GD.Print("interacting with: ");
+			GD.Print(this.Name);
+			switch(state)
+			{
+				case CannonState.empty:
+					break;
+
+				case CannonState.loading:
+					break;
+
+				case CannonState.ready:
+					FireCannon();
+					break;
+
+				default:
+					break;
+			}
+		}
+	}
+
+	private void FireCannon()
+	{
+		state = CannonState.empty;
+		BarrelAnimator.Visible = true;
+		BarrelAnimator.Animation = "fire";
+		BarrelAnimator.Play();
+	}
+
+	// Signals ---------------------------------------------------------------------------------------------------------
 	private void _on_body_entered(Node2D body)
 	{
 		if (body.IsInGroup("Player"))
 		{
-			GD.Print("PLAYER IN HERE");
+			being_interacted = true;
 		}
 	}
 
@@ -25,7 +70,17 @@ public partial class Cannon : Area2D
 	{
 		if (body.IsInGroup("Player"))
 		{
-			GD.Print("PLAYER LEFT");
+			being_interacted = false;
 		}
+	}
+
+	private void _on_barrel_animator_animation_finished() 
+	{
+		BarrelAnimator.Visible = false;
+	}
+
+	private void _on_player_player_interacting()
+	{
+		InteractHandler();
 	}
 }
