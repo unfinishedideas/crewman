@@ -54,6 +54,7 @@ public partial class Player : CharacterBody2D
             RotationDegrees = 180;
         }
 
+        // Interacting Signal
         bool is_interacting = false;
 		if (Input.IsActionPressed("interact")) {
             is_interacting = true;
@@ -63,6 +64,7 @@ public partial class Player : CharacterBody2D
             EmitSignal(SignalName.PlayerStoppedInteracting);
         }
 
+        // Move character and animate
         if (velocity.Length() > 0) {
             velocity = velocity.Normalized() * Speed;
             PlayerAnimator.Animation = "walk";

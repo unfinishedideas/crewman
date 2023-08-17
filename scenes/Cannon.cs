@@ -31,6 +31,9 @@ public partial class Cannon : Area2D
 	private int num_loadbar_frames = 1;
 	private int num_coolbar_frames = 1;
 
+	// Signals
+	[Signal] public delegate void CannonFiredEventHandler();
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -140,6 +143,7 @@ public partial class Cannon : Area2D
 		BarrelAnimator.Visible = true;
 		BarrelAnimator.Animation = "fire";
 		BarrelAnimator.Play();
+		EmitSignal(SignalName.CannonFired);
 		SetCannonState(CannonState.cooldown);
 	}
 

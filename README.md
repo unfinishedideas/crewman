@@ -26,5 +26,5 @@ This prototype was built with the following assets and code examples
 
 ## Useful Resources
 
-[VS Code and Godot](https://docs.godotengine.org/en/stable/contributing/development/configuring_an_ide/visual_studio_code.html)
-[VSCode C# and Godot](https://gist.github.com/paulloz/30ae499c1fc580a2f3ab9ecebe80d9ba)
+* [VS Code and Godot](https://docs.godotengine.org/en/stable/contributing/development/configuring_an_ide/visual_studio_code.html)
+* [VSCode C# and Godot](https://gist.github.com/paulloz/30ae499c1fc580a2f3ab9ecebe80d9ba)
