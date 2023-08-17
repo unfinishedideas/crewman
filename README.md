@@ -30,6 +30,7 @@ This prototype was built with the following assets and code examples
 ### Sound
 
 * The Cannon Firing Audio Effect: [FreeSound.org DylanSmithSound: "Ceremonial Cannon Fire"](https://freesound.org/people/DylanSmithSound/sounds/274826/) and [Freesound.org Isaac200000: Cannon5.wav](https://freesound.org/people/Isaac200000/sounds/184651/) + Some mixing / audio effects
+* Ambient Ocean sounds: Recorded near Depot Bay, OR by myself.
 * Cannon Reload Loop: Homemade by rubbing drumsticks on a water bottle
 * Interacting with Cannon Loop: Handmade by thumping chest / hitting water bottle with hands
 

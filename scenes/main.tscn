@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cttmwq6tcwhal"]
+[gd_scene load_steps=33 format=3 uid="uid://cttmwq6tcwhal"]
 
 [ext_resource type="Texture2D" uid="uid://dd0kajvtfv482" path="res://assets/ship/Ship_mast.png" id="2_c5j1c"]
 [ext_resource type="Texture2D" uid="uid://b1ecf6ua55xsm" path="res://assets/ship/Ship_sail.png" id="3_5xvus"]
@@ -19,6 +19,7 @@
 [ext_resource type="Shader" path="res://scenes/water.gdshader" id="14_n1axm"]
 [ext_resource type="Texture2D" uid="uid://cf8w6o355ykha" path="res://assets/icon.svg" id="15_h12bi"]
 [ext_resource type="Texture2D" uid="uid://lx56pw5gjlm8" path="res://assets/backgrounds/water_texture.jpg" id="16_5cmnt"]
+[ext_resource type="AudioStream" uid="uid://yvgd8b5l3vej" path="res://assets/audio/WavesAmbience.wav" id="20_mih3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0fch"]
 size = Vector2(209, 299.5)
@@ -351,6 +352,10 @@ offset_bottom = 9602.0
 texture = ExtResource("16_5cmnt")
 stretch_mode = 1
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_mih3b")
+autoplay = true
 
 [connection signal="body_entered" from="Ship/UpperDecks/VisibilityMask" to="Ship/UpperDecks/VisibilityMask" method="_on_body_entered"]
 [connection signal="body_exited" from="Ship/UpperDecks/VisibilityMask" to="Ship/UpperDecks/VisibilityMask" method="_on_body_exited"]

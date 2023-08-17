@@ -227,6 +227,9 @@ public partial class Cannon : Area2D
 			if (state == CannonState.loading){
 				CannonReloadSFX.StreamPaused = true;
 				StatusAnimator.Stop();
+				if (InteractWithCannonSFX.Playing == true){
+					InteractWithCannonSFX.Stop();
+				}
 			}
 		}
 	}
@@ -240,8 +243,7 @@ public partial class Cannon : Area2D
 	{
 		InteractHandler();
 		if (state == CannonState.loading) {
-			if (InteractWithCannonSFX.Playing == false)
-			{
+			if (InteractWithCannonSFX.Playing == false)	{
 				InteractWithCannonSFX.Play();
 			}
 			CannonReloadSFX.PitchScale = interacting_reload_sfx_pitch_adjust;
@@ -251,8 +253,7 @@ public partial class Cannon : Area2D
 	{
 		being_interacted = false;
 		if (state == CannonState.loading) {
-			if (InteractWithCannonSFX.Playing == true)
-			{
+			if (InteractWithCannonSFX.Playing == true) {
 				InteractWithCannonSFX.Stop();
 			}
 			CannonReloadSFX.PitchScale = 1.0f;
