@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dere7l3esysb8"]
+[gd_scene load_steps=68 format=3 uid="uid://dere7l3esysb8"]
 
 [ext_resource type="Texture2D" uid="uid://b2725bjo7vkur" path="res://assets/cannon/24.png" id="1_ekyuu"]
 [ext_resource type="Script" path="res://scenes/Cannon.cs" id="1_ufbxs"]
@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cewi77awr7ek0" path="res://assets/ui/Cooldown.png" id="5_ro72y"]
 [ext_resource type="Texture2D" uid="uid://d051vp36qivs" path="res://assets/ui/LoadBar2.png" id="5_tr1ur"]
 [ext_resource type="AudioStream" uid="uid://oh2d30np2dqi" path="res://assets/audio/CannonA.wav" id="8_xxseh"]
+[ext_resource type="AudioStream" uid="uid://w3jlqi8gheoo" path="res://assets/audio/CannonReloadLoop.wav" id="9_k7p7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b7qv"]
-size = Vector2(44, 101)
+size = Vector2(44, 79)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjrcy"]
 radius = 60.0083
@@ -451,7 +452,7 @@ texture = ExtResource("1_ekyuu")
 [node name="CannonStaticBody" type="StaticBody2D" parent="."]
 
 [node name="StaticCollisionShape2D" type="CollisionShape2D" parent="CannonStaticBody"]
-position = Vector2(0, -9.5)
+position = Vector2(0, -20.5)
 shape = SubResource("RectangleShape2D_3b7qv")
 
 [node name="InteractCollisionShape2D" type="CollisionShape2D" parent="."]
@@ -480,8 +481,12 @@ scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_tofrq")
 animation = &"cooldown"
 
-[node name="CannonFire" type="AudioStreamPlayer2D" parent="."]
+[node name="CannonFireSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_xxseh")
+
+[node name="CannonReloadSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_k7p7y")
+volume_db = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

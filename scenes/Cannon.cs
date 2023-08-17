@@ -6,13 +6,16 @@ public partial class Cannon : Area2D
 	AnimatedSprite2D BarrelAnimator;
 	AnimatedSprite2D StatusAnimator;
 	AnimatedSprite2D LoadBarAnimator;
-	AudioStreamPlayer2D CannonFire;
+	AudioStreamPlayer2D CannonFireSFX;
+	AudioStreamPlayer2D CannonReloadSFX;
+	Sprite2D CannonSprite;
 
 	// Mess with these in the editor to tweak behavior!
 	[Export] public float loading_speed = 0.001f;
 	[Export] public float interaction_speed_bonus = 0.003f;
 	[Export] public float cooldown_speed = 0.002f;
 	[Export] public bool flip_status_icons = false;
+	[Export] public float fired_sprite_offset = 10.0f;
 
 	// Private Variables for use in the script
 	enum CannonState {
@@ -41,7 +44,9 @@ public partial class Cannon : Area2D
 		BarrelAnimator = GetNode<AnimatedSprite2D>("BarrelAnimator");
 		StatusAnimator = GetNode<AnimatedSprite2D>("StatusAnimator");
 		LoadBarAnimator = GetNode<AnimatedSprite2D>("LoadBarAnimator");
-		CannonFire = GetNode<AudioStreamPlayer2D>("CannonFire");
+		CannonFireSFX = GetNode<AudioStreamPlayer2D>("CannonFireSFX");
+		CannonReloadSFX = GetNode<AudioStreamPlayer2D>("CannonReloadSFX");
+		CannonSprite = GetNode<Sprite2D>("CannonSprite");
 
 		if (flip_status_icons == true) {
 			StatusAnimator.RotationDegrees = 180;
@@ -93,11 +98,13 @@ public partial class Cannon : Area2D
 	private void CooldownCannon()
 	{
 		loading_status -= cooldown_speed;
+		CannonSprite.Offset = new Vector2(fired_sprite_offset * loading_status, 0.0f);
 		LoadBarAnimator.SetFrameAndProgress(
 			GetBarFrameByPercentage(num_coolbar_frames, loading_status), 
 			0
 		);
 		if (loading_status <= 0) {
+			CannonSprite.Offset = new Vector2(0.0f, 0.0f);
 			has_fired = false;
 			loading_status = 0.0f;
 			SetCannonState(CannonState.empty);
@@ -145,8 +152,9 @@ public partial class Cannon : Area2D
 		has_fired = true;
 		BarrelAnimator.Visible = true;
 		BarrelAnimator.Animation = "fire";
-		CannonFire.Play();
+		CannonFireSFX.Play();
 		BarrelAnimator.Play();
+		CannonSprite.Offset = new Vector2(fired_sprite_offset, 0.0f);
 		EmitSignal(SignalName.CannonFired);
 		SetCannonState(CannonState.cooldown);
 	}
@@ -163,10 +171,12 @@ public partial class Cannon : Area2D
 					StatusAnimator.Visible = false;
 					break;
 				case CannonState.loading:
+					CannonReloadSFX.Play();
 					LoadBarAnimator.Visible = true;
 					StatusAnimator.Visible = true;
 					break;
 				case CannonState.ready:
+					CannonReloadSFX.Stop();
 					LoadBarAnimator.Animation = "ready";
 					StatusAnimator.Visible = false;
 					break;
@@ -186,6 +196,7 @@ public partial class Cannon : Area2D
 			in_interactable_range = true;
 			if (state == CannonState.loading){
 				StatusAnimator.Play();
+				CannonReloadSFX.StreamPaused = false;
 			}
 		}
 	}
@@ -195,6 +206,7 @@ public partial class Cannon : Area2D
 		if (body.IsInGroup("Player")) {
 			in_interactable_range = false;
 			if (state == CannonState.loading){
+				CannonReloadSFX.StreamPaused = true;
 				StatusAnimator.Stop();
 			}
 		}
@@ -208,10 +220,16 @@ public partial class Cannon : Area2D
 	private void _on_player_player_interacting()
 	{
 		InteractHandler();
+		if (state == CannonState.loading) {
+			CannonReloadSFX.PitchScale = 1.5f;
+		}
 	}
 	private void _on_player_player_stopped_interacting()
 	{
 		being_interacted = false;
+		if (state == CannonState.loading) {
+			CannonReloadSFX.PitchScale = 1.0f;
+		}
 		if (state == CannonState.ready) {
 			ready_to_fire = true;
 		}

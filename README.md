@@ -16,6 +16,8 @@ Crewman is created in the open source [Godot Engine](https://godotengine.org/). 
 
 This prototype was built with the following assets and code examples
 
+### Graphics
+
 * Water Texture: [berserkitty (DeviantArt)](https://www.deviantart.com/berserkitty/art/Seamless-Cartoon-styled-Water-Texture-743787929)
 * Cannon Graphics: [bdragon1727: Cannon Gun 9-pixel cannon pack (itch.io)](https://bdragon1727.itch.io/cannon-gun)
 * Explosions: [ansimuz: Explosions Animations Pack (itch.io)](https://ansimuz.itch.io/explosion-animations-pack)
@@ -23,7 +25,11 @@ This prototype was built with the following assets and code examples
 * Ship Graphics: [rishikiram: Ship Pixel Sprite (itch.io)](https://rishikiram.itch.io/ship-pixel-sprite)
 * UI Graphics: [bdragon1727: Basic Pixel Health Bar and Scroll Bar (itch.io)](https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar)
 * Water Ripple Shader: [PlayWithFurcifer: How Games Make VFX (Demonstrated in Godot 4) (Youtube)](https://www.youtube.com/watch?v=eU-F-xuEo7s)
-* The Cannon Firing Audio Effect: [FreeSound.org DylanSmithSound: "Ceremonial Cannon Fire"](https://freesound.org/people/DylanSmithSound/sounds/274826/) and [Freesound.org Isaac200000: Cannon5.wav](https://freesound.org/people/Isaac200000/sounds/184651/) + Some mixing / audio effects by Peter
+
+### Sound
+
+* The Cannon Firing Audio Effect: [FreeSound.org DylanSmithSound: "Ceremonial Cannon Fire"](https://freesound.org/people/DylanSmithSound/sounds/274826/) and [Freesound.org Isaac200000: Cannon5.wav](https://freesound.org/people/Isaac200000/sounds/184651/) + Some mixing / audio effects
+* Cannon Reload Loop: Homemade by rubbing drumsticks on a water bottle
 
 ## Useful Resources
 
