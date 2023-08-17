@@ -22,5 +22,4 @@ void fragment() {
 	//vec4 screen_col = texture(SCREEN_TEXTURE, SCREEN_UV + distortion_strength * noise_col.rr);
 	COLOR = screen_col * tone_color + top_light;
 	COLOR.a = 1.0; // cap alpha
-	// Place fragment code here.
 }

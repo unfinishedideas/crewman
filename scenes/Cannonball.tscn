@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://vm5jr0pclqdn"]
+
+[ext_resource type="Texture2D" uid="uid://ca3wgx7i4hkv4" path="res://assets/cannon/cannonball.png" id="1_4vnh6"]
+[ext_resource type="Script" path="res://scenes/Cannonball.cs" id="1_oly6m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4m4vj"]
+radius = 9.0
+
+[node name="Cannonball" type="Area2D"]
+script = ExtResource("1_oly6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4vnh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4m4vj")
