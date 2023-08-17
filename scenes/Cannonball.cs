@@ -4,7 +4,7 @@ using System;
 
 public partial class Cannonball : Area2D
 {
-	[Export] public float speed = 1200f;
+	[Export] public float speed = 1700f;
 	[Export] public float max_distance = 600;
 
 	// Called when the node enters the scene tree for the first time.
