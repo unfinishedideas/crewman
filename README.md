@@ -12,6 +12,18 @@ Created by Peter Wells and Stuart Rimel for CS-510 Computer Game Design at Portl
 
 Crewman is created in the open source [Godot Engine](https://godotengine.org/). Specifically The .Net 4.1.1 version
 
+## Asset Acknowledgements
+
+This prototype was built with the following assets and code examples
+
+* Water Texture: [berserkitty (DeviantArt)](https://www.deviantart.com/berserkitty/art/Seamless-Cartoon-styled-Water-Texture-743787929)
+* Cannon Graphics: [bdragon1727: Cannon Gun 9-pixel cannon pack (itch.io)](https://bdragon1727.itch.io/cannon-gun)
+* Explosions: [ansimuz: Explosions Animations Pack (itch.io)](https://ansimuz.itch.io/explosion-animations-pack)
+* Pirate: [pixelfrog-assets: pirate-bomb (itch.io)](https://pixelfrog-assets.itch.io/pirate-bomb)
+* Ship Graphics: [rishikiram: Ship Pixel Sprite (itch.io)](https://rishikiram.itch.io/ship-pixel-sprite)
+* UI Graphics: [bdragon1727: Basic Pixel Health Bar and Scroll Bar (itch.io)](https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar)
+* Water Ripple Shader: [PlayWithFurcifer: How Games Make VFX (Demonstrated in Godot 4) (Youtube)](https://www.youtube.com/watch?v=eU-F-xuEo7s)
+
 ## Useful Resources
 
 [VS Code and Godot](https://docs.godotengine.org/en/stable/contributing/development/configuring_an_ide/visual_studio_code.html)
