@@ -6,6 +6,7 @@ public partial class Cannon : Area2D
 	AnimatedSprite2D BarrelAnimator;
 	AnimatedSprite2D StatusAnimator;
 	AnimatedSprite2D LoadBarAnimator;
+	AudioStreamPlayer2D CannonFire;
 
 	// Mess with these in the editor to tweak behavior!
 	[Export] public float loading_speed = 0.001f;
@@ -40,6 +41,8 @@ public partial class Cannon : Area2D
 		BarrelAnimator = GetNode<AnimatedSprite2D>("BarrelAnimator");
 		StatusAnimator = GetNode<AnimatedSprite2D>("StatusAnimator");
 		LoadBarAnimator = GetNode<AnimatedSprite2D>("LoadBarAnimator");
+		CannonFire = GetNode<AudioStreamPlayer2D>("CannonFire");
+
 		if (flip_status_icons == true) {
 			StatusAnimator.RotationDegrees = 180;
 			LoadBarAnimator.RotationDegrees = 180;
@@ -142,6 +145,7 @@ public partial class Cannon : Area2D
 		has_fired = true;
 		BarrelAnimator.Visible = true;
 		BarrelAnimator.Animation = "fire";
+		CannonFire.Play();
 		BarrelAnimator.Play();
 		EmitSignal(SignalName.CannonFired);
 		SetCannonState(CannonState.cooldown);

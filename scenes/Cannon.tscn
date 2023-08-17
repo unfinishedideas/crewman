@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dere7l3esysb8"]
+[gd_scene load_steps=67 format=3 uid="uid://dere7l3esysb8"]
 
 [ext_resource type="Texture2D" uid="uid://b2725bjo7vkur" path="res://assets/cannon/24.png" id="1_ekyuu"]
 [ext_resource type="Script" path="res://scenes/Cannon.cs" id="1_ufbxs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1mb14nwjyvq7" path="res://assets/ui/StarBounce.png" id="5_2ww8o"]
 [ext_resource type="Texture2D" uid="uid://cewi77awr7ek0" path="res://assets/ui/Cooldown.png" id="5_ro72y"]
 [ext_resource type="Texture2D" uid="uid://d051vp36qivs" path="res://assets/ui/LoadBar2.png" id="5_tr1ur"]
+[ext_resource type="AudioStream" uid="uid://oh2d30np2dqi" path="res://assets/audio/CannonA.wav" id="8_xxseh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b7qv"]
 size = Vector2(44, 101)
@@ -478,6 +479,9 @@ position = Vector2(0, 19)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_tofrq")
 animation = &"cooldown"
+
+[node name="CannonFire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_xxseh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
