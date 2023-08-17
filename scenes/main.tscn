@@ -353,7 +353,7 @@ texture = ExtResource("16_5cmnt")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="OceanAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_mih3b")
 autoplay = true
 
