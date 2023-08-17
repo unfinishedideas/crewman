@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://dere7l3esysb8"]
+[gd_scene load_steps=69 format=3 uid="uid://dere7l3esysb8"]
 
 [ext_resource type="Texture2D" uid="uid://b2725bjo7vkur" path="res://assets/cannon/24.png" id="1_ekyuu"]
 [ext_resource type="Script" path="res://scenes/Cannon.cs" id="1_ufbxs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d051vp36qivs" path="res://assets/ui/LoadBar2.png" id="5_tr1ur"]
 [ext_resource type="AudioStream" uid="uid://oh2d30np2dqi" path="res://assets/audio/CannonA.wav" id="8_xxseh"]
 [ext_resource type="AudioStream" uid="uid://w3jlqi8gheoo" path="res://assets/audio/CannonReloadLoop.wav" id="9_k7p7y"]
+[ext_resource type="AudioStream" uid="uid://dbjnxct6f5rsm" path="res://assets/audio/InteractWithCannonLoop.wav" id="10_cahi7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3b7qv"]
 size = Vector2(44, 79)
@@ -448,8 +449,10 @@ script = ExtResource("1_ufbxs")
 rotation = 1.5708
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_ekyuu")
+metadata/_edit_lock_ = true
 
 [node name="CannonStaticBody" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="StaticCollisionShape2D" type="CollisionShape2D" parent="CannonStaticBody"]
 position = Vector2(0, -20.5)
@@ -458,12 +461,14 @@ shape = SubResource("RectangleShape2D_3b7qv")
 [node name="InteractCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 38)
 shape = SubResource("CircleShape2D_gjrcy")
+metadata/_edit_lock_ = true
 
 [node name="BarrelAnimator" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(0, -104)
 sprite_frames = SubResource("SpriteFrames_3wu86")
 animation = &"fire"
+metadata/_edit_lock_ = true
 
 [node name="StatusAnimator" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -472,6 +477,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fimwf")
 animation = &"loading"
 frame_progress = 0.684803
+metadata/_edit_lock_ = true
 
 [node name="LoadBarAnimator" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -480,13 +486,23 @@ position = Vector2(0, 19)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_tofrq")
 animation = &"cooldown"
+metadata/_edit_lock_ = true
 
 [node name="CannonFireSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_xxseh")
+metadata/_edit_lock_ = true
 
 [node name="CannonReloadSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_k7p7y")
 volume_db = 2.0
+metadata/_edit_lock_ = true
+
+[node name="InteractWithCannonSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_cahi7")
+metadata/_edit_lock_ = true
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, -50)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
