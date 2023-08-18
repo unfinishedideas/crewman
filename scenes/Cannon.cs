@@ -11,7 +11,7 @@ public partial class Cannon : Area2D
 
 	AudioStreamPlayer2D CannonFireSFX;
 	AudioStreamPlayer2D CannonReloadSFX;
-	AudioStreamPlayer2D InteractWithCannonSFX;
+	AudioStreamPlayer InteractWithCannonSFX;
 	
 	Marker2D Muzzle;
 
@@ -52,7 +52,7 @@ public partial class Cannon : Area2D
 		LoadBarAnimator = GetNode<AnimatedSprite2D>("LoadBarAnimator");
 		CannonFireSFX = GetNode<AudioStreamPlayer2D>("CannonFireSFX");
 		CannonReloadSFX = GetNode<AudioStreamPlayer2D>("CannonReloadSFX");
-		InteractWithCannonSFX = GetNode<AudioStreamPlayer2D>("InteractWithCannonSFX");
+		InteractWithCannonSFX = GetNode<AudioStreamPlayer>("InteractWithCannonSFX");
 		Muzzle = GetNode<Marker2D>("Muzzle");
 		CannonSprite = GetNode<Sprite2D>("CannonSprite");
 
