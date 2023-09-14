@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dere7l3esysb8"]
+[gd_scene load_steps=72 format=3 uid="uid://dere7l3esysb8"]
 
 [ext_resource type="Texture2D" uid="uid://b2725bjo7vkur" path="res://assets/cannon/24.png" id="1_ekyuu"]
 [ext_resource type="Script" path="res://scenes/Cannon.cs" id="1_ufbxs"]
@@ -442,6 +442,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_23d1e"]
+colors = PackedColorArray(0.972549, 0.576471, 0.0470588, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qyh0j"]
+gradient = SubResource("Gradient_23d1e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w6c6o"]
+lifetime_randomness = 0.17
+emission_shape = 1
+emission_sphere_radius = 12.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 52.04
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 325.67
+initial_velocity_max = 581.62
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_qyh0j")
+
 [node name="CannonArea2D" type="Area2D"]
 script = ExtResource("1_ufbxs")
 
@@ -457,6 +479,7 @@ metadata/_edit_lock_ = true
 [node name="StaticCollisionShape2D" type="CollisionShape2D" parent="CannonStaticBody"]
 position = Vector2(0, -20.5)
 shape = SubResource("RectangleShape2D_3b7qv")
+metadata/_edit_lock_ = true
 
 [node name="InteractCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 38)
@@ -503,6 +526,17 @@ metadata/_edit_lock_ = true
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(0, -50)
+metadata/_edit_lock_ = true
+
+[node name="ParticleEmitter" type="GPUParticles2D" parent="."]
+position = Vector2(-1, -50)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_w6c6o")
+one_shot = true
+explosiveness = 0.33
+randomness = 0.16
+trail_lifetime = 0.03
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

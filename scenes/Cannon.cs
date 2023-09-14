@@ -8,6 +8,7 @@ public partial class Cannon : Area2D
 	AnimatedSprite2D StatusAnimator;
 	AnimatedSprite2D LoadBarAnimator;
 	Sprite2D CannonSprite;
+	GpuParticles2D ParticleEmitter;
 
 	AudioStreamPlayer2D CannonFireSFX;
 	AudioStreamPlayer2D CannonReloadSFX;
@@ -22,6 +23,7 @@ public partial class Cannon : Area2D
 	[Export] public bool flip_status_icons = false;
 	[Export] public float fired_sprite_offset = 10.0f;
 	[Export] public float interacting_reload_sfx_pitch_adjust = 1.2f;
+	[Export] public float emitter_cooldown_speed = 0.06f;
 
 	// Private Variables for use in the script
 	enum CannonState {
@@ -40,6 +42,7 @@ public partial class Cannon : Area2D
 	private float loading_status = 0.0f;
 	private int num_loadbar_frames = 1;
 	private int num_coolbar_frames = 1;
+	private float emitter_cooldown = 0.0f;
 
 	// Signals
 	[Signal] public delegate void CannonFiredEventHandler();
@@ -55,6 +58,7 @@ public partial class Cannon : Area2D
 		InteractWithCannonSFX = GetNode<AudioStreamPlayer>("InteractWithCannonSFX");
 		Muzzle = GetNode<Marker2D>("Muzzle");
 		CannonSprite = GetNode<Sprite2D>("CannonSprite");
+		ParticleEmitter = GetNode<GpuParticles2D>("ParticleEmitter");
 
 		if (flip_status_icons == true) {
 			StatusAnimator.RotationDegrees = 180;
@@ -75,8 +79,17 @@ public partial class Cannon : Area2D
 		}
 		// Cooldown
 		else if (state == CannonState.cooldown && has_fired == true){
+			// Emitter Cooldown
+			if (ParticleEmitter.Emitting == true) {
+				emitter_cooldown -= emitter_cooldown_speed;
+				if (emitter_cooldown <= 0.0f) {
+					ParticleEmitter.Emitting = false;
+					GD.Print("Done");
+				}
+			}
+
 			CooldownCannon();
-		}
+		}		
 	}
 
 	// Cannon Loading / Cooldown ---------------------------------------------------------------------------------------
@@ -163,6 +176,8 @@ public partial class Cannon : Area2D
 		BarrelAnimator.Animation = "fire";
 		BarrelAnimator.Play();
 		CannonSprite.Offset = new Vector2(fired_sprite_offset, 0.0f);
+		ParticleEmitter.Emitting = true;
+		emitter_cooldown = 1.0f;
 
 		CannonFireSFX.Play();
 
